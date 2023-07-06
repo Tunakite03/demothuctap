@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+ErrorDocument 404 /404
+RewriteEngine On
+RewriteBase /
+
+#RewriteCond %{HTTPS} !on
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
+#url client
+RewriteRule ^trang-chu$ /?m=home&act=index [L]
+RewriteRule ^trang-chu/$ /?m=home&act=index [L]
+
+#url tong quan
+RewriteRule ^404$ /?m=home&act=error [L]
+
+</IfModule>
