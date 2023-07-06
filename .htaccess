@@ -9,6 +9,9 @@ RewriteBase /
 #url client
 RewriteRule ^trang-chu$ /?m=home&act=index [L]
 RewriteRule ^trang-chu/$ /?m=home&act=index [L]
+RewriteRule ^tai-khoan$ /?m=account&act=index [L]
+RewriteRule ^tai-khoan/logout$ /?m=account&act=logout [L]
+
 
 #url tong quan
 RewriteRule ^404$ /?m=home&act=error [L]

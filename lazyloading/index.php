@@ -21,9 +21,9 @@ if (isset($_SESSION['lang']) && in_array($_SESSION['lang'], array('vi', 'en'))) 
 }
 
 if ($apikey == $global_apikey_public) {
-    if (isset($m['0'])) {
 
-        include $m . '.php';
+    if (isset($m['0'])) {
+        include '../m/' . $m . '.php';
     } else {
         echo $lang['er_003'] . " - index.ajax.";
     }
@@ -33,13 +33,13 @@ if ($apikey == $global_apikey_public) {
         //kiểm tra ngôn ngữ
         include '../lang/vi/home.php';
 
-        $members = new members();
-        $members->set('user_id', @$_SESSION['usernameClient']);
-        $members->set('password', @$_SESSION['passwordClient']);
+        $members = new users();
+        $members->set('user_id', @$_SESSION['username']);
+        $members->set('password', @$_SESSION['password']);
         $dMemberLogin = $members->check_login();
 
         if ($dMemberLogin['user_id']) {
-            include $m . '.php';
+            include '../m/' . $m . '.php';
         } else {
             echo "<b>Chuyển đến trang đăng nhập ...</b>. <script> setTimeout(function(){window.location = '" . $domain . "/logout.php';},2000); </script>";
             $db->close();
@@ -68,7 +68,7 @@ if ($apikey == $global_apikey_public) {
         include '../lang/vi/home.php';
 
         @$user->setusername($_SESSION['username']);
-        @$user->setpassword($_SESSION['pass']);
+        @$user->setpassword($_SESSION['password']);
         $dUserLogin = $user->check_login();
 
         // $dUserLogin['gid'] = 1;

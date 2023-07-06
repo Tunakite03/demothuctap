@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Lora:wght@600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/css/bootstrap.min.css">
+    {* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/css/bootstrap.min.css"> *}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
@@ -68,18 +68,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
     <!-- Bootstrap JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-
-    {* <script src="{$domain}/public/js/jquery.min.js"></script>
-    <script src="{$domain}/public/bootstrap/js/bootstrap.min.js"></script>
-    <link href="{$domain}/public/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="{$domain}/public/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="{$domain}/public/css/owl.carousel.css" rel="stylesheet" />
-    <link href="{$domain}/public/css/animate.css" rel="stylesheet" />
-    <link href="{$domain}/public/fonts/montserrat/fonts.css" rel="stylesheet">
-    <link href="{$domain}/public/css/main.css?{$version}" rel="stylesheet" />
-    <script src="{$domain}/js/{$session.lang}/home.js?{$version}"></script> *}
 
 <body class="body-home">
 
@@ -159,29 +147,28 @@
                     </a>
                     <?php
                     </div> *}
-                {if !empty($session.clientId)}
+
+                {if !empty($session.user_id)}
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="userMenu"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="fa fa-user"></span>
-                            {$sesstion.fullnameClient}
+                            {$session.fullname}
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="userMenu">
-                            <li><a class="dropdown-item" href="/account/profile/{$session.clientId}">Profile</a></li>
+                            <li><a class="dropdown-item" href="/account/profile/{$session.user_id}">Profile</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="/account/logout">Đăng xuất</a></li>
+                            <li><a class="dropdown-item" href="/tai-khoan/logout">Đăng xuất</a></li>
                         </ul>
                     </div>
                 {else}
-                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="/account">
+                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="/tai-khoan">
                         <small class="fa fa-user text-body"></small>
                     </a>
                 {/if}
             </div>
         </nav>
     </div>
-    <!-- Navbar End -->
-
-{* <script type="text/javascript" src="{$domain}/js/js_act/page_login_register.js?{$version}"></script> *}
+<!-- Navbar End -->

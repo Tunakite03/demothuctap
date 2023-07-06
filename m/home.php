@@ -10,16 +10,14 @@
 
 if ($act == 'index') {
 	$title .= 'Trang chủ';
-	$manager_image = new manager_image();
-
-	$manager_image->set('type', 'slide');
-	$manager_image->set('is_hidden', '0');
-	$st->assign('lSlide', $manager_image->filter(''));
+	$page = $main->get('page');
+	print_r($page);
+	// print_r($_SESSION);
 } elseif ($act == 'error') {
 	$title .= 'Lỗi';
 	/**
 	 * END trang lỗi và thông báo lỗi
 	 */
 } else {
-	$main->redirect($domain); //Nếu không xác định được trang cần tìm có thể redirect ra trang home hoặc show trang not found
+	$main->redirect('/404'); //Nếu không xác định được trang cần tìm có thể redirect ra trang home hoặc show trang not found
 }

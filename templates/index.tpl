@@ -7,18 +7,11 @@
 	{include  file="`$tpldirect`header_admin.tpl"} *}
 {* {elseif $m=='client'}
 	{include  file="`$tpldirect`header_client.tpl"} *}
+	
 	{include  file="`$tpldirect`header.tpl"}
-	{if $m == 'home' && $act=='index'}
+
+	<div id="main-container" class="w">
 		{include  file="`$tpldirect``$temp`"}
-	{else}
-		<div id="main-container" class="">
-			{include  file="`$tpldirect``$temp`"}
-		</div>
-	{/if}
+	</div>
 
-	{* {if $m == 'panel' || $m == 'setting'}
-	{include  file="`$tpldirect`footer_admin.tpl"} *}
-	{* {elseif $m=='client'}
-	{include  file="`$tpldirect`footer_client.tpl"} *}
-
-		{include  file="`$tpldirect`footer.tpl"}
+	{include  file="`$tpldirect`footer.tpl"}

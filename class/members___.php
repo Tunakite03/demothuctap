@@ -1,5 +1,5 @@
 <?php
-class members
+class members_____
 {
 
 	private $class_name = 'members';

@@ -460,6 +460,7 @@ class user {
 		return $rows;
 	}
 	
+	
 	public function get_fullname($username){
 		global $db;		
 		$sql = "SELECT fullname FROM " . $db->tbl_fix . "`user` WHERE `username`='" . str_replace("'", "\'", $username) . "'";

@@ -6,47 +6,65 @@ ini_set('display_startup_errors', true);
 include 'include/global.php';
 include 'include/session.php';
 
-$page = $main->get('page');
+// $page = $main->get('page');
 
-if (isset($page) && $page=='admin') {
-    
-    unset($_COOKIE['id']);
-    unset($_COOKIE['fullname']);
-    unset($_COOKIE['pass']);
-    unset($_COOKIE['username']);
-    unset($_COOKIE['gid']);
+// unset($_COOKIE['id']);
+unset($_COOKIE['password']);
+unset($_COOKIE['fullname']);
+unset($_COOKIE['username']);
+// unset($_COOKIE['gid']);
 
-    setcookie( 'id', '44', time() - 3600, '/');
-    setcookie('pass', '44', time() - 3600, '/');
-    setcookie('fullname', '44', time() - 3600, '/');
-    setcookie('username', '44', time() - 3600, '/');
+// setcookie( 'id', '44', time() - 3600);
+setcookie('fullname', '44', time() - 3600, '/');
+setcookie('username', '44', time() - 3600, '/');
+setcookie('password', '44', time() - 3600, '/');
 
-    unset($_SESSION['id']);
-    unset($_SESSION['pass']);
-    unset($_SESSION['fullname']);
-    unset($_SESSION['username']);
-    unset($_SESSION['gid']);
+unset($_SESSION['password']);
+unset($_SESSION['fullname']);
+unset($_SESSION['username']);
 
-    session_destroy();
-    $main->redirect('/admin');
-} elseif(isset($page) && $page=='client') {
-    // unset($_COOKIE['id']);
-    unset($_COOKIE['passwordClient']);
-    unset($_COOKIE['fullnameClient']);
-    unset($_COOKIE['usernameClient']);
-    // unset($_COOKIE['gid']);
+session_destroy();
+$main->redirect('/tai-khoan');
 
-    // setcookie( 'id', '44', time() - 3600);
-    setcookie('fullnameClient', '44', time() - 3600, '/');
-    setcookie('usernameClient', '44', time() - 3600, '/');
-    setcookie('passwordClient', '44', time() - 3600, '/');
+// if (isset($page) && $page == 'admin') {
 
-    unset($_SESSION['passwordClient']);
-    unset($_SESSION['fullnameClient']);
-    unset($_SESSION['usernameClient']);
+//     unset($_COOKIE['id']);
+//     unset($_COOKIE['fullname']);
+//     unset($_COOKIE['pass']);
+//     unset($_COOKIE['username']);
+//     unset($_COOKIE['gid']);
 
-    session_destroy();
-    $main->redirect('/dang-nhap');
-}else{
-    $main->redirect('/');
-}
+//     setcookie('id', '44', time() - 3600, '/');
+//     setcookie('pass', '44', time() - 3600, '/');
+//     setcookie('fullname', '44', time() - 3600, '/');
+//     setcookie('username', '44', time() - 3600, '/');
+
+//     unset($_SESSION['id']);
+//     unset($_SESSION['pass']);
+//     unset($_SESSION['fullname']);
+//     unset($_SESSION['username']);
+//     unset($_SESSION['gid']);
+
+//     session_destroy();
+//     $main->redirect('/admin');
+// } elseif (isset($page) && $page == 'client') {
+//     // unset($_COOKIE['id']);
+//     unset($_COOKIE['password']);
+//     unset($_COOKIE['fullname']);
+//     unset($_COOKIE['username']);
+//     // unset($_COOKIE['gid']);
+
+//     // setcookie( 'id', '44', time() - 3600);
+//     setcookie('fullname', '44', time() - 3600, '/');
+//     setcookie('username', '44', time() - 3600, '/');
+//     setcookie('password', '44', time() - 3600, '/');
+
+//     unset($_SESSION['password']);
+//     unset($_SESSION['fullname']);
+//     unset($_SESSION['username']);
+
+//     session_destroy();
+//     $main->redirect('/dang-nhap');
+// } else {
+//     $main->redirect('/');
+// }
