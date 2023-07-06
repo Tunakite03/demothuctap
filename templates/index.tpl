@@ -7,7 +7,7 @@
 	{include  file="`$tpldirect`header_admin.tpl"} *}
 {* {elseif $m=='client'}
 	{include  file="`$tpldirect`header_client.tpl"} *}
-	{include  file="`$tpldirect`header_home.tpl"}
+	{include  file="`$tpldirect`header.tpl"}
 	{if $m == 'home' && $act=='index'}
 		{include  file="`$tpldirect``$temp`"}
 	{else}
