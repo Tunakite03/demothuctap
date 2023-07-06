@@ -20,8 +20,5 @@
 	{include  file="`$tpldirect`footer_admin.tpl"} *}
 	{* {elseif $m=='client'}
 	{include  file="`$tpldirect`footer_client.tpl"} *}
-		{if $m=='home' && $act=='index'}
-			{include  file="`$tpldirect`footer_home.tpl"}
-		{else}
-			{include  file="`$tpldirect`footer.tpl"}
-		{/if}
+
+		{include  file="`$tpldirect`footer.tpl"}

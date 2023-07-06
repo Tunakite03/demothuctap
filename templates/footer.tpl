@@ -1,109 +1,56 @@
 <footer>
-    <div class="{if $m == 'home' || $m == 'category'}container-fluid{else}container{/if}">
-        <div class="row hide">
-            <div class="col-md-5 col-sm-12 col-xs-12">
-                <div class="footer_panel">
-                    <p><strong style="font-size: 20px;">CÔNG TY CỔ PHẦN FINPAL</strong></p>
-                    <p>Lầu 6 - Bcons Tower II, 42/1 Ung Văn Khiêm, P.25, Q.Bình Thạnh, TP. HCM</p>
-                </div>
-            </div>
-            <div class="col-md-7 col-sm-12 col-xs-12">
-                <div class="row">
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="footer_panel">
-                            <h3>Liên hệ</h3>
-                            <ul class="links">
-                                <li><a href="wichart">0927 139 368</a></li>
-                                <li><a href="wifeed">admin@finpal.vn</a></li>
-                                <li><a href="about">Thông tin giới thiệu</a></li>
-                                <li><a href="contact">Thông tin liên hệ</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="footer_panel">
-                            <h3>Sản phẩm</h3>
-                            <ul class="links">
-                                <li><a href="wichart">Phần mềm WiChart</a></li>
-                                <li><a href="wifeed">Nền tảng WiFeed</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="footer_panel">
-                            <h3>Chính sách</h3>
-                            <ul class="links">
-                                <li><a href="tos">Điều khoản</a></li>
-                                <li><a href="privacy">Chính sách bảo mật</a></li>
-                                <li><a href="#">Chính sách giao hàng</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+    <!-- Footer Start -->
+<div class="container-fluid bg-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+<div class="container py-5">
+    <div class="row g-5">
+        <div class="col-lg-3 col-md-6">
+            <h1 class="fw-bold text-primary mb-4"><a href="/"><img src="<?php echo _WEB_ROOT ?>/public/assets/img/logo.png" alt=""></a></h1>
+            <p>Chúng tôi là shop thú cưng chuyên cung cấp các sản phẩm chất lượng cao và dịch vụ tốt nhất cho các bé
+                cưng của bạn. Hãy đến với chúng tôi để mang đến cho thú cưng của bạn một cuộc sống tốt đẹp nhất!</p>
+            <div class="d-flex pt-2">
+                <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i
+                        class="fab fa-twitter"></i></a>
+                <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i
+                        class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i
+                        class="fab fa-youtube"></i></a>
+                <a class="btn btn-square btn-outline-light rounded-circle me-0" href=""><i
+                        class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
-        <div class="menu-bottom">
-            <ul>
-                <li><a href="#" title="#">Giới thiệu</a></li>
-                <li><a href="#" title="#">Liên hệ</a></li>
-                <li><a href="#" title="#">Sản phẩm</a></li>
-                <li><a href="#" title="#">Chính sách</a></li>
-            </ul>
+        <div class="col-lg-3 col-md-6">
+            <h4 class="text-dark mb-4">Liên Hệ</h4>
+            <p><i class="fa fa-map-marker-alt me-3"></i>28E Tăng Bạch Hổ, Phường 11, Bình Thạnh, Thành phố Hồ Chí
+                Minh , Việt Nam</p>
+            <p><i class="fa fa-phone-alt me-3"></i>0987654321</p>
+            <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
         </div>
-        <div class="copyright">
-            <a>© Bản quyền 2022 thuộc về FINPAL</a>
+        <div class="col-lg-3 col-md-6">
+            <h4 class="text-dark mb-4">Chọn Nhanh</h4>
+            <a class="btn btn-link" href="">Về Chúng Tôi</a>
+            <a class="btn btn-link" href="?action=contact">Liên Hệ</a>
+            <a class="btn btn-link" href="">Điều khoản & Điều kiện</a>
+            <a class="btn btn-link" href="">Hỗ Trợ</a>
         </div>
-    </div>
-</footer>
-<div class="home-unpinned">
-    <div class="item">
-        <a class="" href="#" title="Trang chủ">
-            <img src="{$domain}/public/imgs/icon-11.png" alt="Trang chủ">
-            <img src="{$domain}/public/imgs/icon-01.png" alt="Trang chủ">
-            <span>Trang chủ</span>
-        </a>
-    </div>
-    <div class="item">
-        <a class="active" href="#" title="Khuyến nghị">
-            <img src="{$domain}/public/imgs/icon-14.png" alt="Khuyến nghị">
-            <img src="{$domain}/public/imgs/icon-04.png" alt="Khuyến nghị">
-            <span>Khuyến nghị</span>
-        </a>
-    </div>
-    <div class="item">
-        <a class="" href="#" title="Thị trường">
-            <img src="{$domain}/public/imgs/icon-13.png" alt="Thị trường">
-            <img src="{$domain}/public/imgs/icon-03.png" alt="Thị trường">
-            <span>Thị trường</span>
-        </a>
-    </div>
-    <div class="item">
-        <a class="" href="#" title="Ngành">
-            <img src="{$domain}/public/imgs/icon-15.png" alt="Ngành">
-            <img src="{$domain}/public/imgs/icon-05.png" alt="Ngành">
-            <span>Ngành</span>
-        </a>
-    </div>
-    <div class="item">
-        <a class="" href="#" title="Cổ phiếu">
-            <img src="{$domain}/public/imgs/icon-12.png" alt="Cổ phiếu">
-            <img src="{$domain}/public/imgs/icon-02.png" alt="Cổ phiếu">
-            <span>Cổ phiếu</span>
-        </a>
-    </div>
-    <div class="item">
-        <a class="" href="#" title="Bảng tin">
-            <img src="{$domain}/public/imgs/icon-16.png" alt="Bảng tin">
-            <img src="{$domain}/public/imgs/icon-06.png" alt="Bảng tin">
-            <span>Bảng tin</span>
-        </a>
+        <div class="col-lg-3 col-md-6">
+            <h4 class="text-dark mb-4">Tin Tức</h4>
+            <p>Cập nhật những thông tin hữu ích và thú vị về thú cưng cho bạn hàng ngày tại đây.</p>
+            <div class="position-relative mx-auto" style="max-width: 400px;">
+                <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text"
+                    placeholder="Email của bạn">
+                <button type="button" class="btn btn-danger py-2 position-absolute top-0 end-0 mt-2 me-2">Đăng
+                    Ký</button>
+            </div>
+        </div>
     </div>
 </div>
 
-<div id="loading_bar" style="display: none;"><i class="fa fa-spinner fa-spin fa-5x fa-fw margin-bottom"></i></div>
+</div>
+<!-- Footer End -->
+</footer>
 
+<!-- Back to Top -->
+<a href="" class="btn btn-lg btn-danger btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 <style>
     @media (max-width: 767px) {
         body {
@@ -112,8 +59,19 @@
     }
 </style>
 
-<script type="text/javascript" src="{$domain}/js/bootstrap/bootstrap-dialog.js?{$version}"></script>
-<script type="text/javascript" src="{$domain}/js/bootstrap.js?{$version}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{$domain}/public/assets/clients/lib/wow/wow.min.js"></script>
+<script src="{$domain}/public/assets/clients/lib/easing/easing.min.js"></script>
+<script src="{$domain}/public/assets/clients/lib/waypoints/waypoints.min.js"></script>
+<script src="{$domain}/public/assets/clients/lib/owlcarousel/owl.carousel.min.js"></script>
+
+<script src="{$domain}/public/assets/clients/js/main.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
+{* <script type="text/javascript" src="{$domain}/js/bootstrap/bootstrap-dialog.js?{$version}"></script> *}
+
+{* <script type="text/javascript" src="{$domain}/js/bootstrap.js?{$version}"></script>
 <script type="text/javascript" src="{$domain}/js/jquery.bootstrap-touchspin.js?{$version}"></script>
 
 <script type="text/javascript" src="{$domain}/public/js/owl.carousel.js"></script>
@@ -131,7 +89,7 @@
 <script type="text/javascript" src="{$domain}/js/js_act/{$m}_{$act}.js?{$version}"></script>
 {else}
 {/if}
-<script type="text/javascript" src="{$domain}/js/global.js?{$version}"></script>
+<script type="text/javascript" src="{$domain}/js/global.js?{$version}"></script> *}
 
 
 
