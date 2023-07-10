@@ -11,7 +11,6 @@
 if ($act == 'index') {
 	$title .= 'Trang chủ';
 	$page = $main->get('page');
-	print_r($page);
 	// print_r($_SESSION);
 } elseif ($act == 'error') {
 	$title .= 'Lỗi';

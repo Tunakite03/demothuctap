@@ -151,7 +151,7 @@ class db
 
 		// $query = mysqli_query ( $this->link, $sql ) or print_r(mysqli_error($this->link));
 		// $query = mysqli_query ( $this->link, $sql ) or trigger_error("Query Failed! SQL: $sql - Error: ".mysqli_error($this->link), E_USER_ERROR) ;
-		
+
 		// if( 
 		// 	strpos( $sql , 'INSERT') !== false 
 		// 	// || strpos( $sql, 'status') !== false 

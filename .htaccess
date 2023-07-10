@@ -11,6 +11,9 @@ RewriteRule ^trang-chu$ /?m=home&act=index [L]
 RewriteRule ^trang-chu/$ /?m=home&act=index [L]
 RewriteRule ^tai-khoan$ /?m=account&act=index [L]
 RewriteRule ^tai-khoan/logout$ /?m=account&act=logout [L]
+RewriteRule ^cua-hang$ /?m=shop&act=index [L]
+RewriteRule ^cua-hang/chi-tiet-san-pham/([0-9]+)$ /?m=shop&act=detail&id=$1 [L]
+RewriteRule ^gio-hang$ /?m=cart&act=index [L]
 
 
 #url tong quan
