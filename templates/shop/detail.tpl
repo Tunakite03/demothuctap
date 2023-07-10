@@ -45,14 +45,14 @@
             <div class="col-md-6">
                 <h1 class="mb-4"><span>{$data_detail.name}</span></h1>
                 <p class="text-muted">Mã sản phẩm: <span>{$data_detail.id}</span></p>
-                {if $data_detail.price gt $data_detail.sale and $data_detail.sale eq 0}
+                {if $data_detail.sale == 1 }
                     <h5 style="color:red;">
-                        {$formatted_price = $data_detail.sale|number_format:0:',':'.'}{$formatted_price}<sup><u>đ</u></sup></br>
+                        {$formatted_price = $data_detail.price|number_format:0:',':'.'}{$formatted_price}<sup><u>đ</u></sup></br>
                     </h5>
                 {else}
                     <h5>
                         <font color="red">
-                            {$formatted_price = $data_detail.sale|number_format:0:',':'.'}{$formatted_price}<sup><u>đ</u></sup>
+                            {$formatted_price =  ($data_detail.price*(1-(1-$data_detail.sale)))|number_format:0:',':'.'}{$formatted_price}<sup><u>đ</u></sup>
                         </font>
                         <strike>{$formatted_price = $data_detail.price|number_format:0:',':'.'}{$formatted_price}</strike><sup><u>đ</u></sup></br>
                     </h5>

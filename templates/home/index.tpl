@@ -59,7 +59,7 @@
                     </p>
                     <p><i class="fa fa-check text-secondary me-3"></i>Với những thương hiệu nổi tiếng trên toàn thế giới
                     </p>
-                    <a class="btn btn-secondary rounded-pill py-3 px-5 mt-3" href="/san-pham">Tham quan ngay</a>
+                    <a class="btn btn-secondary rounded-pill py-3 px-5 mt-3" href="/cua-hang">Tham quan ngay</a>
 
                 </div>
             </div>
@@ -96,24 +96,22 @@
                                         </div>
                                         <div class="text-center p-4">
 
-                                            <h5 class="d-block h5 mb-2">
+                                            <a class="d-block h5 mb-2">
                                                 {$item.name}
-                                            </h5>
+                                            </a>
                                             <span class="text-secondary me-1">
-                                                {if $item.price gt $item.sale and $item.sale eq 0}
+                                                {if $item.sale == 1}
                                                     <h5 style="color:red;">
                                                         {$formatted_price = $item.price|number_format:0:',':'.'}{$formatted_price}<sup><u>đ</u></sup></br>
                                                     </h5>
                                                 {else}
                                                     <h5>
                                                         <font color="red">
-                                                            {$formatted_price = $item.sale|number_format:0:',':'.'}{$formatted_price}<sup><u>đ</u></sup>
+                                                            {$formatted_price =  ($item.price*(1-(1-$item.sale)))|number_format:0:',':'.'}{$formatted_price}<sup><u>đ</u></sup>
                                                         </font>
                                                         <strike>{$formatted_price = $item.price|number_format:0:',':'.'}{$formatted_price}</strike><sup><u>đ</u></sup></br>
                                                     </h5>
                                                 {/if}
-
-
                                             </span>
                                             <span class="me-1 d-block mb-2" href="">
                                                 lượt mua:
@@ -140,7 +138,7 @@
                             </div>
                         {/foreach}
                         <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                            <a href="/san-pham" class="btn btn-secondary rounded-pill py-3 px-5">Xem
+                            <a href="/cua-hang" class="btn btn-secondary rounded-pill py-3 px-5">Xem
                                 thêm </a>
 
                         </div>
@@ -170,7 +168,7 @@
                         {foreach from=$dataProductTrents item=item key=key}
                             <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                                 <div class="product-item">
-                                    <a class="d-block h5 mb-2" href="/shopdog/detail/{$item.id}">
+                                    <a class="d-block h5 mb-2" href="/{$item.link_url}-id{$item.id}">
                                         <div class="position-relative bg-light overflow-hidden">
                                             <img class="img-fluid w-100"
                                                 src="{$domain}/public/assets/img/img_pet/{$item.image}" alt="">
@@ -184,14 +182,14 @@
                                                 {$item.name}
                                             </a>
                                             <span class="text-secondary me-1">
-                                                {if $item.price gt $item.sale and $item.sale eq 0}
+                                                {if $item.sale == 1}
                                                     <h5 style="color:red;">
                                                         {$formatted_price = $item.price|number_format:0:',':'.'}{$formatted_price}<sup><u>đ</u></sup></br>
                                                     </h5>
                                                 {else}
                                                     <h5>
                                                         <font color="red">
-                                                            {$formatted_price = $item.sale|number_format:0:',':'.'}{$formatted_price}<sup><u>đ</u></sup>
+                                                            {$formatted_price =  ($item.price*(1-(1-$item.sale)))|number_format:0:',':'.'}{$formatted_price}<sup><u>đ</u></sup>
                                                         </font>
                                                         <strike>{$formatted_price = $item.price|number_format:0:',':'.'}{$formatted_price}</strike><sup><u>đ</u></sup></br>
                                                     </h5>

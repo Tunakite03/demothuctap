@@ -1,5 +1,5 @@
 <!-- Product Section Begin -->
-<section class="product spad ">
+<section class="product spad" style="padding-top: 200px;">
     <div class="container">
         <div class="row">
             <!-- Search -->
@@ -49,7 +49,7 @@
                                                 width="100%">
                                             <div>
                                                 <div class="product__discount__percent">-
-                                                    {$discount_percent = round(($item.price - $item.sale) / $item.price * 100)}{$discount_percent}%
+                                                    {$discount_percent = (1 - $item.sale)*100}{$discount_percent}%
                                                 </div>
                                             </div>
                                         </div>
@@ -59,8 +59,9 @@
                                                     </span></a></h6>
                                             <!-- <h5><a href="#">Raisin’n’nuts</a></h5> -->
                                             <div class="product__item__price">
+                                                
                                                 <p style="color: crimson;">
-                                                    {$formatted_price = $item.sale|number_format:0:',':'.'}{$formatted_price}đ
+                                                    {$formatted_price = ($item.price*(1-(1-$item.sale)))|number_format:0:',':'.'}{$formatted_price}đ
                                                 </p><span>
                                                     {$formatted_price = $item.price|number_format:0:',':'.'}{$formatted_price}đ
                                                 </span>
@@ -122,14 +123,14 @@
                                                             {$item.name}
                                                         </span></a></h6>
                                                 <span class="text-secondary me-1">
-                                                    {if $item.price gt $item.sale and $item.sale eq 0}
+                                                    {if $item.sale == 1}
                                                         <h5 style="color:red;">
                                                             {$formatted_price = $item.price|number_format:0:',':'.'}{$formatted_price}<sup><u>đ</u></sup></br>
                                                         </h5>
                                                     {else}
                                                         <h5>
                                                             <font color="red">
-                                                                {$formatted_price = $item.sale|number_format:0:',':'.'}{$formatted_price}<sup><u>đ</u></sup>
+                                                                {$formatted_price =  ($item.price*(1-(1-$item.sale)))|number_format:0:',':'.'}{$formatted_price}<sup><u>đ</u></sup>
                                                             </font>
                                                             <strike>{$formatted_price = $item.price|number_format:0:',':'.'}{$formatted_price}</strike><sup><u>đ</u></sup></br>
                                                         </h5>

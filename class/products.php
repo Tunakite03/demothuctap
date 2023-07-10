@@ -7,6 +7,8 @@ class products extends model
     protected $name;
     protected $des;
     protected $link_url;
+    protected $key;
+
 
 
     // lấy list sản phẩm
@@ -33,7 +35,7 @@ class products extends model
 
         global $db;
 
-        $sql = "SELECT pd.*, pr.image,pr.price,pr.sale,pr.number_sell FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.id_pd = pd.id WHERE pr.role_img=0 AND pr.sale > 0 ";
+        $sql = "SELECT pd.*, pr.image,pr.price,pr.sale,pr.number_sell FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.id_pd = pd.id WHERE pr.role_img=0 AND pr.sale != 1 ";
         $l = $db->executeQuery($sql);
 
         return $l;
@@ -66,5 +68,16 @@ class products extends model
         $result = $db->executeQuery($sql, 1);
 
         return $result;
+    }
+    public function getProductSearch()
+    {
+
+        global $db;
+        $key = $this->key;
+
+        $sql = "SELECT pd.*, pr.image,pr.price,pr.sale,pr.number_sell FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.id_pd = pd.id WHERE pr.role_img=0 AND pd.name LIKE  '%$key%'";
+        $l = $db->executeQuery($sql);
+
+        return $l;
     }
 }
