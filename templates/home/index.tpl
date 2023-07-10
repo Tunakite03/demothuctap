@@ -126,12 +126,12 @@
                                                         class="fa fa-eye text-secondary me-2"></i>Xem</a>
                                             </small>
                                             <small class="w-50 text-center py-2 wrap_addtocart">
-                                                <input type="number" hidden data-product-id={$item.id}>
-                                                <button class="add_to_cart text-body btn btn-outline-success"
-                                                    style="outline: none;"><i
-                                                        class="fa fa-shopping-bag text-secondary me-2"></i>Thêm vào giỏ
-                                                    hàng</button>
-                                            </small>
+                                            <input type="number" hidden data-product-id={$item.id}>
+                                            <button class="add_to_cart text-body btn btn-outline-success"
+                                                style="outline: none;"><i
+                                                    class="fa fa-shopping-bag text-secondary me-2"></i>Thêm vào giỏ
+                                                hàng</button>
+                                        </small>
                                         </div>
                                     </a>
                                 </div>
@@ -208,6 +208,7 @@
                                                 <a class="text-body" href="/{$item.link_url}-id{$item.id}"><i
                                                         class="fa fa-eye text-secondary me-2"></i>Xem</a>
                                             </small>
+
                                             <small class="w-50 text-center py-2 ">
                                                 <input type="number" value="{$item.id}" hidden data-product-id={$item.id}>
                                                 <button class="add_to_cart text-body btn btn-outline-info"><i

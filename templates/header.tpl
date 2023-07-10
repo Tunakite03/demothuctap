@@ -119,6 +119,7 @@
                     <a class="nav-link " class="nav-item nav-link" href="/cua-hang"  > Shop Chó </a>
                     <a href="/news" class="nav-item nav-link">Tin Tức</a>
                     <a href="/contact" class="nav-item nav-link">Liên Hệ</a>
+                    <a href="/gio-hang" class="nav-item nav-link">Giỏ Hàng</a>
 
                 </div>
                 {* <div class="d-none d-lg-flex ms-2">
