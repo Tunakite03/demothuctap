@@ -9,8 +9,7 @@
                 <div class="col-12 p-5">
                     <h4 class="text-center px4 py-3">Giỏ hàng của bạn đang trống !!</h4>
                     <div class="text-center py-2"> {assign var="links" value=['/shopdog','/shopcat']}
-                        {assign var="randomLink" value=$links[array_rand($links)]}
-                        <a href="{$randomLink}" class="btn btn-login text-center w-25 m-auto">Mua sắm ngay </a>
+                        <a href="/cua-hang" class="btn btn-login text-center w-25 m-auto">Mua sắm ngay </a>
                     </div>
                 </div>
             {else} <h1 class="text-center">Giỏ Hàng Của Bạn</h1>
@@ -30,8 +29,8 @@
                                 </thead>
                                 <tbody> {foreach from=$data item=product} <tr>
                                             <td>
-                                                {* <img src="{$domain}/public/assets/img/img_pet/{$product.image}"
-                                                    alt="" width="100">  *}
+                                                <img src="{$domain}/public/assets/img/img_pet/{$product.image}" alt=""
+                                                    width="100">
                                             </td>
                                             <td>{$product.name}</td>
                                             <td>{number_format($product.price,0,'.','.')} VND</td>
@@ -44,7 +43,8 @@
                                                         name="quantity[{$product.id}]"> <button type="button"
                                                         class="btn btn-outline-primary plus-btn">+</button> </div>
                                             </td>
-                                            <td>{number_format($product.total,0,'.','.')} VND</td>
+                                            <td>{number_format($product.price*$product.sale*$product.quantity,0,'.','.')} VND
+                                            </td>
                                             <td><a class="ri-delete-bin-line delete-product" style="cursor: pointer"
                                                     href="/cart/deleteItem/{$product.id}"> </a></td>
                                         </tr>

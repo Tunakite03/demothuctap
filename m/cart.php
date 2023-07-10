@@ -58,6 +58,12 @@ switch ($act) {
             }
         }
         break;
+    case 'updatequantity':
+        $cart = new cart();
+        $cart->set('id', $main->post('id'));
+        $cart->set('quantity', $main->post('quantity'));
+        break;
+
 
     default:
         $main->redirect('/404');
