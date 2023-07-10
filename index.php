@@ -41,10 +41,10 @@ if ($m == 'panel') {
 		}
 	}
 } elseif ($m == 'client') {
-	$members = new members();
+	$users = new users();
 	if (!isset($_SESSION['usernameclient']) || !isset($_SESSION['passwordClient'])) {
 		if (isset($_COOKIE['usernameclient']) && isset($_COOKIE['passwordClient'])) {
-			$duser = $members->get_detail($_COOKIE['usernameclient']);
+			$duser = $users->get_detail($_COOKIE['usernameclient']);
 			if ($duser['status'] == 'Active' && $duser['password'] == $_COOKIE['passwordClient']) {
 				$_SESSION['usernameclient'] 	= $duser['user_id'];
 				$_SESSION['fullnameClient'] 	= $duser['fullname'];

@@ -10,7 +10,7 @@ $(document).on('click', '.plus-btn', function () {
 
     _doAjaxNod('POST', formData, 'cart_index', 'index', 'updatequantity', true, (res) => {
         // Call the _doAjaxNod function
-        console.log(res);
+  
         if (res.status == 200) {
             var domain = res.data.domain;
             domain = domain.replace(/"/g, '');
