@@ -16,34 +16,31 @@ switch ($act) {
         $product = new products();
 
         $data_products_sale = $product->getProductSaleAll();
-        // print_r($data_products_sale);
         $data_products_all = $product->getProductAll();
+
 
         $st->assign('dataproductsale', $data_products_sale);
         $st->assign('dataproductall', $data_products_all);
-
         break;
     case 'detail':
-        $title .= 'sản phẩm chi tiết';
-
+        $title .= 'chi tiết san phẩm';
         $product = new products();
 
-        $id = $main->get('id');
+        $product->set('link_url', $main->get('link_url'));
+        $product->set('id', $main->get('id'));
 
-        $product->set('id', $id);
+        $data_detail = $product->getProducById();
 
-        // $data_products_detail= $product->getProductByID($id);
-        $data_products_detail = $product->getProductDetail();
-        // $st->assign('dataproductdetail', $data_products_detail);
-        $st->assign('data', $data_products_detail);
-
+        if (!isset($data_detail['id'])) {
+            $main->redirect($link . "/404");
+        } else {
+            $st->assign('data_detail', $data_detail);
+        }
         break;
-
 
     case 'error':
         $title .= 'Loi';
         break;
-
 
     default:
         $main->redirect('/404');

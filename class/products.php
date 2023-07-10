@@ -1,12 +1,12 @@
 <?php
 class products extends model
 {
-    protected $class_name = 'productdogs'; // sản phẩm
+    protected $class_name = 'productdogs'; // tin tức
     protected $id;
     protected $id_cate;
     protected $name;
     protected $des;
-
+    protected $link_url;
 
 
     // lấy list sản phẩm
@@ -15,30 +15,28 @@ class products extends model
         global $db;
 
         $sql = "SELECT pd.*, pr.image,pr.price,pr.sale,pr.number_sell FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.id_pd = pd.id WHERE pr.role_img=0  ORDER BY `id` DESC LIMIT 4";
-        $result = $db->executeQuery($sql);
+        $l = $db->executeQuery($sql);
 
-        return $result;
+        return $l;
     }
     public function getList_trent()
     {
         global $db;
 
         $sql = "SELECT pd.*, pr.image,pr.price,pr.sale,pr.number_sell FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.id_pd = pd.id WHERE pr.role_img=0  ORDER BY `number_sell` DESC LIMIT 4";
-        $result = $db->executeQuery($sql);
+        $l = $db->executeQuery($sql);
 
-        return $result;
+        return $l;
     }
-
-
     public function getProductSaleAll()
     {
 
         global $db;
 
         $sql = "SELECT pd.*, pr.image,pr.price,pr.sale,pr.number_sell FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.id_pd = pd.id WHERE pr.role_img=0 AND pr.sale > 0 ";
-        $result = $db->executeQuery($sql);
+        $l = $db->executeQuery($sql);
 
-        return $result;
+        return $l;
     }
     public function getProductAll()
     {
@@ -46,32 +44,17 @@ class products extends model
         global $db;
 
         $sql = "SELECT pd.*, pr.image,pr.price,pr.sale,pr.number_sell FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.id_pd = pd.id WHERE pr.role_img=0";
-        $result = $db->executeQuery($sql);
+        $l = $db->executeQuery($sql);
 
-        return $result;
+        return $l;
     }
-    // public function getProductByID()
-    // {
-
-    //     global $db;
-
-    //     $sql = "SELECT * FROM $db->tbl_fix$this->class_name where id =$id" ;
-    //     $result = $db->executeQuery($sql);
-
-    //     return $result;  
-    // }
-
-    public function getProductDetail()
+    public function getProducById()
     {
         global $db;
-        $id = $this->get('id');
-        $sql = "SELECT pr.*,pd.*
-                        FROM $db->tbl_fix$this->class_name
-                        pd  JOIN properties pr on pr.id_pd=pd.id WHERE pd.id=$id";
+        $sql = "SELECT pd.*, pr.image,pr.price,pr.sale,pr.number_sell FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.id_pd = pd.id WHERE pr.role_img=0 AND pd.id=$this->id";
+        $l = $db->executeQuery($sql, 1);
 
-        $result = $db->executeQuery($sql, 1);
-
-        return $result;
+        return $l;
     }
     public function getPriceProductById()
     {

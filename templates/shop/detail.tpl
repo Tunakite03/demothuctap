@@ -10,9 +10,10 @@
                             <ul id="slider">
                                 {* if($set.hinh==$res.hinh){ *}
                                 <li data-color="#1abc9c">
-                                    <a data-fancybox="gallery" href="{$domain}/public/assets/img/img_pet/{$data.image}">
-                                        <img src="{$domain}/public/assets/img/img_pet/{$data.image}" width="500px"
-                                            height="450px" class="img_spdetail">
+                                    <a data-fancybox="gallery"
+                                        href="{$domain}/public/assets/img/img_pet/{$data_detail.image}">
+                                        <img src="{$domain}/public/assets/img/img_pet/{$data_detail.image}"
+                                            width="500px" height="450px" class="img_spdetail">
                                     </a>
                                 </li>
                                 {* } *}
@@ -42,20 +43,23 @@
 
             </div>
             <div class="col-md-6">
-                <h1 class="mb-4"><span>{$data.name}</span></h1>
-                <p class="text-muted">Mã sản phẩm: <span>{$data.id}</span></p>
-                {if $data.price > $data.sale && $data.sale == 0}
+                <h1 class="mb-4"><span>{$data_detail.name}</span></h1>
+                <p class="text-muted">Mã sản phẩm: <span>{$data_detail.id}</span></p>
+                {if $data_detail.price gt $data_detail.sale and $data_detail.sale eq 0}
                     <h5 style="color:red;">
-                        {number_format($data.price)}<sup><u>đ</u></sup><br /></h5>
+                        {$formatted_price = $data_detail.sale|number_format:0:',':'.'}{$formatted_price}<sup><u>đ</u></sup></br>
+                    </h5>
                 {else}
                     <h5>
-                        <font color="red">{number_format($data.sale)}<sup><u>đ</u></sup></font>
-                        <strike>{number_format($data.price)}</strike><sup><u>đ</u></sup><br />
+                        <font color="red">
+                            {$formatted_price = $data_detail.sale|number_format:0:',':'.'}{$formatted_price}<sup><u>đ</u></sup>
+                        </font>
+                        <strike>{$formatted_price = $data_detail.price|number_format:0:',':'.'}{$formatted_price}</strike><sup><u>đ</u></sup></br>
                     </h5>
                 {/if}
 
                 <div class="mb-3">
-                    <input type="number" value="{$data.id}" hidden id="product_id">
+                    <input type="number" value="{$data_detail.id}" hidden id="product_id">
                     <label for="quantity" class="form-label">Số lượng:</label>
                     <div class="input-group">
                         <button type="button" class="btn btn-outline-primary minus-btn" id="minus">-</button>
@@ -66,19 +70,17 @@
                 </div>
                 <div class="data-action">
                     <button type="button" class="btn btn-warning" id="add_to_cart">Thêm vào giỏ hàng</button>
-                    <a class="btn btn-success" href="{$smarty.const._WEB_ROOT}/likedata/addtolike/{$data.id}"><i
+                    <a class="btn btn-success" href="{$domain}/likedata/addtolike/{$data_detail.id}"><i
                             class="bi bi-suit-heart-fill"></i></a>
                 </div>
-
             </div>
-
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="data-description">
                     <h3 class="my-4">Mô tả sản phẩm</h3>
                     <p>
-                        {$data.des}
+                        {$data_detail.des}
                     </p>
                 </div>
             </div>
@@ -128,7 +130,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+<td>
                                     <p class="comment-text">
                                         {$set.content}
                                     </p>

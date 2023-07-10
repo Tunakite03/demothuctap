@@ -14,7 +14,7 @@ RewriteRule ^tai-khoan/logout$ /?m=account&act=logout [L]
 RewriteRule ^cua-hang$ /?m=shop&act=index [L]
 RewriteRule ^cua-hang/chi-tiet-san-pham/([0-9]+)$ /?m=shop&act=detail&id=$1 [L]
 RewriteRule ^gio-hang$ /?m=cart&act=index [L]
-
+RewriteRule ^(.*)-id([0-9]+)$ /?m=shop&act=detail&link_url=$1&id=$2 [L]
 
 #url tong quan
 RewriteRule ^404$ /?m=home&act=error [L]

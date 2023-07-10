@@ -86,7 +86,7 @@
                         {foreach from=$dataProductNews item=item key=key}
                             <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                                 <div class="product-item">
-                                    <a class="d-block h5 mb-2" href="/shopdog/detail/{$item.id}">
+                                    <a class="d-block h5 mb-2" href="/{$item.link_url}-id{$item.id}">
                                         <div class="position-relative bg-light overflow-hidden">
                                             <img class="img-fluid w-100"
                                                 src="{$domain}/public/assets/img/img_pet/{$item.image}" alt="">
@@ -96,9 +96,9 @@
                                         </div>
                                         <div class="text-center p-4">
 
-                                            <a class="d-block h5 mb-2">
+                                            <h5 class="d-block h5 mb-2">
                                                 {$item.name}
-                                            </a>
+                                            </h5>
                                             <span class="text-secondary me-1">
                                                 {if $item.price gt $item.sale and $item.sale eq 0}
                                                     <h5 style="color:red;">
