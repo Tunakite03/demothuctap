@@ -87,9 +87,7 @@ switch ($act) {
         }
         break;
     case 'logout':
-        $users = new users();
-        $username         = $main->post('username');
-        $password         = $main->post('password');
+
         if (!isset($_SESSION['user_id'])) {
             $main->redirect($domain . "/");
             $db->close();

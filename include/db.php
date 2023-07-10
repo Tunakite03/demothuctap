@@ -175,6 +175,13 @@ class db
 			case 3:
 				$query = mysqli_fetch_row($query);
 				return $query[0];
+			case 4:
+				$rows = array();
+
+				while ($row = mysqli_fetch_assoc($query)) {
+					$rows[] = $row;
+				}
+				return $rows;
 			default:
 				return $query;
 		}
@@ -231,6 +238,7 @@ class db
 
 	public function record_delete($table_name, $where = '')
 	{
+		echo $table_name;
 		if ($where)	$whereand = " WHERE " . $where;
 		$queryString = "DELETE FROM " . $table_name . $whereand;
 		return $this->executeQuery($queryString);

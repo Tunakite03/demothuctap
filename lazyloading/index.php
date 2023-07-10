@@ -2,8 +2,8 @@
 include '../define.php';
 
 error_reporting(E_ALL);
-ini_set('display_errors', true);
-ini_set('display_startup_errors', true);
+ini_set('display_errors', false);
+ini_set('display_startup_errors', false);
 
 $m             = $main->get('m');
 $act         = $main->get('act');
@@ -21,9 +21,8 @@ if (isset($_SESSION['lang']) && in_array($_SESSION['lang'], array('vi', 'en'))) 
 }
 
 if ($apikey == $global_apikey_public) {
-
     if (isset($m['0'])) {
-        include '../m/' . $m . '.php';
+        include $m . '.php';
     } else {
         echo $lang['er_003'] . " - index.ajax.";
     }
@@ -33,13 +32,13 @@ if ($apikey == $global_apikey_public) {
         //kiểm tra ngôn ngữ
         include '../lang/vi/home.php';
 
-        $members = new users();
-        $members->set('user_id', @$_SESSION['username']);
-        $members->set('password', @$_SESSION['password']);
-        $dMemberLogin = $members->check_login();
+        $users = new users();
+        $users->set('user_id', @$_SESSION['usernameClient']);
+        $users->set('password', @$_SESSION['passwordClient']);
+        $dMemberLogin = $users->check_login();
 
         if ($dMemberLogin['user_id']) {
-            include '../m/' . $m . '.php';
+            include $m . '.php';
         } else {
             echo "<b>Chuyển đến trang đăng nhập ...</b>. <script> setTimeout(function(){window.location = '" . $domain . "/logout.php';},2000); </script>";
             $db->close();
@@ -68,7 +67,7 @@ if ($apikey == $global_apikey_public) {
         include '../lang/vi/home.php';
 
         @$user->setusername($_SESSION['username']);
-        @$user->setpassword($_SESSION['password']);
+        @$user->setpassword($_SESSION['pass']);
         $dUserLogin = $user->check_login();
 
         // $dUserLogin['gid'] = 1;

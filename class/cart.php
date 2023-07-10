@@ -23,12 +23,25 @@ class cart extends model
         $db->record_insert($db->tbl_fix . '`cart`', $arr);
         return true;
     }
+    public function deleteItemInCart()
+    {
+        global $db;
+        $cart_id = $this->id;
+        $arr['quantity'] = $this->quantity;
+        $db->record_delete($db->tbl_fix . $this->class_name, 'id =' . $cart_id);
+
+        return true;
+    }
     public function updateQuantity()
     {
         global $db;
         $cart_id = $this->id;
         $arr['quantity'] = $this->quantity;
-        $db->record_update($db->tbl_fix . '`cart`', $arr, 'id =' . $cart_id);
+        if ($this->quantity == 0) {
+            $db->record_delete($db->tbl_fix . $this->class_name, 'id =' . $cart_id);
+        } else {
+            $db->record_update($db->tbl_fix . '`cart`', $arr, 'id =' . $cart_id);
+        }
         return true;
     }
     public function getlistcart()
@@ -39,7 +52,7 @@ class cart extends model
         LEFT JOIN productdogs pd on pd.id = ca.product_id 
         LEFT JOIN properties pp on pd.id = pp.id_pd 
          WHERE user_id = $user_id and pp.role_img =0 ORDER BY `id` DESC ";
-        $result = $db->executeQuery($sql);
+        $result = $db->executeQuery($sql, 4);
 
         return $result;
     }
@@ -53,6 +66,17 @@ class cart extends model
         FROM $db->tbl_fix$this->class_name
         WHERE `user_id` = '$user_id' 
         AND `product_id` = '$product_id' 
+         limit 0,1";
+        $rows = $db->executeQuery($sql, 1);
+        return $rows;
+    }
+    function getCartById()
+    {
+        global $db;
+        $id = $this->id;
+        $sql = "SELECT *
+        FROM $db->tbl_fix$this->class_name
+        WHERE `id` = '$id' 
          limit 0,1";
         $rows = $db->executeQuery($sql, 1);
         return $rows;
