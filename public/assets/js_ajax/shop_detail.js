@@ -1,5 +1,7 @@
 var thisPage = {};
+
 $(document).ready(function () {
+
     $('#plus').on('click', function () {
         var currentValue = parseInt($('#quantity-pro').val());
         $('#quantity-pro').val(currentValue + 1);
@@ -25,15 +27,15 @@ $(document).ready(function () {
         $(this).val(value);
     });
 
-
-    //tạo tài khoản mới
+    //them vao gio hang
     $('body').on('click', '#add_to_cart', function () {
 
         var data = new FormData();
         data.append('product_id', $('#product_id').val())
         data.append('quantity', $("#quantity-pro").val());
-        _doAjaxNodCustom('POST', data, 'cart', 'addtocart', true, (res) => {
-            // console.log(res);
+
+        _doAjaxNod('POST', data, 'cart_index', 'index', 'addtocart', true, (res) => {
+
             if (res.status == 200) {
                 Toastify({
                     text: res.message,
@@ -42,7 +44,6 @@ $(document).ready(function () {
                     close: true, // Enable the close button on the toast
                     backgroundColor: "#3cb815",
                 }).showToast();
-                // window.location = domain;
             } else {
                 Toastify({
                     text: res.message,

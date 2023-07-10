@@ -137,7 +137,9 @@ $('body').on('hide.bs.modal', function () {
 //     $.datepicker.setDefaults($.datepicker.regional['vi']);
 // });
 
-function _doAjaxNodCustom(type_, data_, m_, act_, global_, doSomeThing) {
+function _doAjaxNodCustom(type_, data_, m_, act_, nod_, global_, doSomeThing) {
+    
+    console.log(domain + '/lazyloading/?apikey=' + apikey_public + '&m=' + m_ + '&act=' + act_ + '&nod=' + nod_);
 
     if (data_ == '') {
         data_ = new FormData();
@@ -145,10 +147,9 @@ function _doAjaxNodCustom(type_, data_, m_, act_, global_, doSomeThing) {
     } else {
         data_.append('browser', _getBrowserName());
     }
-
     $.ajax({
         type: type_,
-        url: domain + '/lazyloading/?apikey=' + apikey_public + '&m=' + m_ + '&act=' + act_, //
+        url: domain + '/lazyloading/?apikey=' + apikey_public + '&m=' + m_ + '&act=' + act_ + '&nod=' + nod_, //
         data: data_,
         processData: false,
         contentType: false,

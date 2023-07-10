@@ -45,7 +45,7 @@ $('body').on('click', '#btn_register', function () {
     data.append('email', $("#inputEmail2").val());
     data.append('phonenumber', $("#inputPhonenumber").val());
     data.append('password', $("#inputPassword2").val());
-    _doAjaxNodCustom('POST', data, 'account', 'register', true, (res) => {
+    _doAjaxNod('POST', data, 'account', 'index', 'register', true, (res) => {
         // console.log(res);
         if (res.status == 200) {
             window.location = domain;
@@ -79,7 +79,7 @@ $('body').on('click', '#btn_login', function () {
 
     data.append('username', $("#inputUsername").val());
     data.append('password', $("#inputPassword1").val());
-    _doAjaxNodCustom('POST', data, 'account', 'login', true, (res) => {
+    _doAjaxNod('POST', data, 'account', 'index', 'login', true, (res) => {
         // console.log(res);
         if (res.status == 200) {
             window.location = domain + '/trang-chu';
