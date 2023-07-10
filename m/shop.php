@@ -18,7 +18,6 @@ switch ($act) {
         $data_products_sale = $product->getProductSaleAll();
         $data_products_all = $product->getProductAll();
 
-
         $st->assign('dataproductsale', $data_products_sale);
         $st->assign('dataproductall', $data_products_all);
         break;

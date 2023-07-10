@@ -59,7 +59,6 @@ $(document).on('click', '.minus-btn', function () {
 });
 
 $(document).on('click', '.delete-product', function () {
-    event.preventDefault();
 
     // Show the SweetAlert confirmation dialog
     Swal.fire({
