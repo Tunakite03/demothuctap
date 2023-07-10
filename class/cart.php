@@ -26,7 +26,19 @@ class cart extends model
         $db->record_insert($db->tbl_fix . '`cart`', $arr);
         return true;
     }
+    public function updateQuantity()
+    {
+        global $db;
 
+        $arr['user_id'] = $this->user_id;
+        $arr['product_id'] = $this->product_id;
+        $arr['quantity'] = $this->quantity;
+        $arr['price'] = $this->price;
+        $total =  $this->quantity * $this->price;
+        $arr['total'] = $total;
+        $db->record_insert($db->tbl_fix . '`cart`', $arr);
+        return true;
+    }
     public function getlistcart()
     {
         global $db;

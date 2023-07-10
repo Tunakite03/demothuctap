@@ -11,8 +11,18 @@
 if ($act == 'index') {
 	$title .= 'Trang chủ';
 	$page = $main->get('page');
-	// print_r($_SESSION);
-} elseif ($act == 'error') {
+
+
+	$product = new products();
+
+	$data_products_new= $product->getList_new();
+	$data_products_trent= $product->getList_trent();
+
+	$st->assign('dataProductNews', $data_products_new);
+	$st->assign('dataProductTrents', $data_products_trent);
+	
+}
+elseif ($act == 'error') {
 	$title .= 'Lỗi';
 	/**
 	 * END trang lỗi và thông báo lỗi
