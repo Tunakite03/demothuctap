@@ -34,17 +34,23 @@ switch ($act) {
         $cart->set('user_id', $_SESSION['user_id']);
         $cart->set('quantity', $main->post('quantity'));
 
+        $rows = $cart->check_product();
+
         if ($main->post('quantity') < 1) {
             echo 'done##', $main->toJsonData(403, 'Số lượng sản phẩm không được nhỏ hơn 1', null);
         } elseif (!isset($_SESSION['user_id']) || $_SESSION['user_id'] == "") {
             echo 'done##', $main->toJsonData(403, 'Vui lòng đăng nhập', null);
         } else {
-            $product->set('id', $main->post('product_id'));
-            $price = $product->getPriceProductById();
-            $cart->set('price', $price['price']);
-
-            $result = $cart->addtocart();
-
+            if (isset($rows['id'])) {
+                $cart->set('id', $rows['id']);
+                $cart->set('quantity', $rows['quantity'] + $main->post('quantity'));
+                $result =   $cart->updateQuantity();
+            } else {
+                $product->set('id', $main->post('product_id'));
+                $price = $product->getPriceProductById();
+                $cart->set('price', $price['price']);
+                $result = $cart->addtocart();
+            }
             if ($result == true) {
                 echo 'done##', $main->toJsonData(200, 'Thêm vào giỏ hàng thành công', null);
             } else {

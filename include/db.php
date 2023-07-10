@@ -225,6 +225,7 @@ class db
 
 		if ($where) $where_and = " WHERE " . $where;
 		$queryString .= implode(',', $fields) . $where_and;
+
 		return $this->executeQuery($queryString);
 	}
 
