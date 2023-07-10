@@ -127,7 +127,7 @@
                                             </small>
                                             <small class="w-50 text-center py-2">
                                                 <a class="text-body"
-                                                    href="<?= _WEB_ROOT ?>/cart/addtocart/<?= $set['id'] ?>"><i
+                                                    href="<?= _WEB_ROOT ?>/cart/addtocart/<?= $set['id'] ?>"  id="add_to_cart"><i
                                                         class="fa fa-shopping-bag text-secondary me-2"></i>Thêm vào giỏ
                                                     hàng</a>
                                             </small>
@@ -210,7 +210,7 @@
                                             <small class="w-50 text-center py-2">
                                                 <a class="text-body"
                                                     href="<?= _WEB_ROOT ?>/cart/addtocart/<?= $set['id'] ?>"><i
-                                                        class="fa fa-shopping-bag text-secondary me-2"></i>Thêm vào giỏ
+                                                        class="fa fa-shopping-bag text-secondary me-2"  id="add_to_cart"></i>Thêm vào giỏ
                                                     hàng</a>
                                             </small>
                                         </div>
