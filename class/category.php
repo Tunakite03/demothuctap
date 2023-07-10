@@ -1,5 +1,5 @@
 <?php
-class news_category extends model
+class category extends model
 {
 
     protected $class_name = 'news_category'; // danh mục tin tức
