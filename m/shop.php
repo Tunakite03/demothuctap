@@ -37,7 +37,19 @@ switch ($act) {
             $st->assign('data_detail', $data_detail);
         }
         break;
-
+    case 'search':
+        $title .= 'tìm kiếm san phẩm';
+        $product = new products();
+      
+       
+            $product->set('key',$main->post('key'));
+            $data_search = $product->getProductSearch();
+      
+            $st->assign('data_search', $data_search);
+            $st->assign('key_search', $main->post('key'));
+        
+       
+        break;
     case 'error':
         $title .= 'Loi';
         break;

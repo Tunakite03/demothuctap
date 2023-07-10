@@ -62,7 +62,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
@@ -100,15 +100,15 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="" style="margin-top: 20px;">
-                <form action="<?= _WEB_ROOT ?>/search" method="GET">
+                <form action="/tim-kiem" method="post">
                     <div class="input-group mb-3">
-                        <select name="table" id="table" class="form-control">
+                        {* <select name="table" id="table" class="form-control">
                             <option value="products">Sản phẩm</option>
                             <option value="news">Tin Tức</option>
-                        </select>
+                        </select> *}
                         <input type="text" class="form-control" placeholder="Bạn cần tìm gì?"
                             aria-label="tìm kiếm sản phẩm" name="key">
-                        <button class="btn btn-danger" type="submit">Tìm kiếm</button>
+                        <button class="btn btn-danger" type="submit" name="SubmitSearch">Tìm kiếm</button>
                     </div>
                 </form>
             </div>
@@ -116,18 +116,7 @@
 
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
                     <a href="/" class="nav-item nav-link active">Trang Chủ</a>
-                    <div class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/shopdog" role="button" aria-expanded="false">
-                            Shop Chó
-                        </a>
-                        <div class="dropdown-menu m-0">
-                            <a href="/shopdog/category/food" class="dropdown-item">Thức Ăn Cho Chó</a>
-                            <a href="/shopdog/category/toy" class="dropdown-item">Đồ Dùng Cho Chó</a>
-                            <a href="/shopdog/category/item" class="dropdown-item">Đồ Chơi Cho Chó</a>
-                            <a href="/shopdog/category/accessory" class="dropdown-item">Phụ Kiện Cho Chó</a>
-                            <a href="/shopdog/category/bed" class="dropdown-item">Chuồng Lồng Cho Chó</a>
-                        </div>
-                    </div>
+                    <a class="nav-link " class="nav-item nav-link" href="/cua-hang"  > Shop Chó </a>
                     <a href="/news" class="nav-item nav-link">Tin Tức</a>
                     <a href="/contact" class="nav-item nav-link">Liên Hệ</a>
 
