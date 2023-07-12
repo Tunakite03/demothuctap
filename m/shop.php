@@ -11,15 +11,22 @@
 
 switch ($act) {
     case 'index':
-        $title .= 'Tài khoản';
+        $title .= 'cửa hàng';
 
         $product = new products();
+        $cate = new product_category();
 
         $data_products_sale = $product->getProductSaleAll();
         $data_products_all = $product->getProductAll();
 
+        $data_cate_root = $cate->getListCateRoot();
+        $data_cate_not_root = $cate->getListCateNotRoot();
+
         $st->assign('dataproductsale', $data_products_sale);
         $st->assign('dataproductall', $data_products_all);
+
+        $st->assign('dataCateRoot', $data_cate_root);
+        $st->assign('dataCateNotRoot', $data_cate_not_root);
         break;
     case 'detail':
         $title .= 'chi tiết san phẩm';
@@ -39,15 +46,15 @@ switch ($act) {
     case 'search':
         $title .= 'tìm kiếm san phẩm';
         $product = new products();
-      
-       
-            $product->set('key',$main->post('key'));
-            $data_search = $product->getProductSearch();
-      
-            $st->assign('data_search', $data_search);
-            $st->assign('key_search', $main->post('key'));
-        
-       
+
+
+        $product->set('key', $main->post('key'));
+        $data_search = $product->getProductSearch();
+
+        $st->assign('data_search', $data_search);
+        $st->assign('key_search', $main->post('key'));
+
+
         break;
     case 'error':
         $title .= 'Loi';

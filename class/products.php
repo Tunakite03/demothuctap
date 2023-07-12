@@ -3,7 +3,7 @@ class products extends model
 {
     protected $class_name = 'productdogs'; // tin tức
     protected $id;
-    protected $id_cate;
+    protected $cate_id;
     protected $name;
     protected $des;
     protected $link_url;
@@ -74,6 +74,37 @@ class products extends model
         $sql = "SELECT pd.*, pr.image FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.product_id = pd.id WHERE pr.role_img=0 AND pd.name LIKE  '%$key%'";
         $l = $db->executeQuery($sql);
 
+        return $l;
+    }
+    public function getProductFilter($sort)
+    {
+
+        global $db;
+        $orderby = "";
+        $set = "";
+        $cate_id = $this->get('cate_id');
+        
+
+        if ($cate_id != null) {
+            $set = " AND c.id = $cate_id OR c.root_id = $cate_id";
+        }
+
+
+        if ($sort == 'DESC') {
+            $orderby =  " ORDER BY p.price DESC";
+        }
+        elseif($sort == 'ASC'){
+            $orderby =  " ORDER BY p.price ASC";
+        }
+  
+
+        $sql = "SELECT *,pr.image,pr.role_img
+        FROM $db->tbl_fix$this->class_name p
+        JOIN product_category c ON p.cate_id = c.id
+        JOIN properties pr ON p.id = pr.product_id
+        WHERE pr.role_img=0 $set $orderby";
+
+        $l = $db->executeQuery_list($sql);
         return $l;
     }
 }
