@@ -140,7 +140,7 @@
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="userMenu"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="fa fa-user"></span>
-                            {$session.fullname}
+                            {$session.username}
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="userMenu">
                             <li><a class="dropdown-item" href="/account/profile/{$session.user_id}">Profile</a></li>

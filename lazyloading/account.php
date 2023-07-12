@@ -25,7 +25,7 @@ if ($act == 'index') {
                 if (isset($dLogin['user_id'])) {
 
                     $_SESSION['user_id']     = $dLogin['user_id'];
-                    $_SESSION['fullname']     = $dLogin['fullname'];
+                    $_SESSION['username']     = $dLogin['username'];
                     $_SESSION['password']     = $dLogin['password'];
 
                     setcookie('username', $_SESSION['username'], time() + 640000);
@@ -59,7 +59,7 @@ if ($act == 'index') {
 
             if (isset($dClientLogin['user_id']) && $dClientLogin['user_id'] != '') {
                 $_SESSION['user_id']     = $dClientLogin['user_id'];
-                $_SESSION['fullname']     = $dClientLogin['fullname'];
+                $_SESSION['username']     = $dClientLogin['username'];
                 $_SESSION['password']     = $dClientLogin['password'];
 
                 setcookie('username', $_SESSION['username'], time() + 640000);

@@ -76,7 +76,7 @@ switch ($act) {
 
         if (isset($dClientLogin['user_id']) && $dClientLogin['user_id'] != '') {
             $_SESSION['user_id']     = $dClientLogin['user_id'];
-            $_SESSION['fullname']     = $dClientLogin['fullname'];
+            $_SESSION['username']     = $dClientLogin['username'];
             $_SESSION['password']     = $dClientLogin['password'];
 
             setcookie('username', $_SESSION['username'], time() + 640000);
@@ -95,17 +95,14 @@ switch ($act) {
         } else {
             // unset($_COOKIE['id']);
             unset($_COOKIE['password']);
-            unset($_COOKIE['fullname']);
             unset($_COOKIE['username']);
             // unset($_COOKIE['gid']);
 
             // setcookie( 'id', '44', time() - 3600);
-            setcookie('fullname', '44', time() - 3600, '/');
             setcookie('username', '44', time() - 3600, '/');
             setcookie('password', '44', time() - 3600, '/');
 
             unset($_SESSION['password']);
-            unset($_SESSION['fullname']);
             unset($_SESSION['username']);
 
             session_destroy();
