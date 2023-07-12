@@ -34,7 +34,7 @@ $(document).ready(function () {
         data.append('product_id', $('#product_id').val())
         data.append('quantity', $("#quantity-pro").val());
 
-        _doAjaxNod('POST', data, 'cart_index', 'index', 'addtocart', true, (res) => {
+        _doAjaxNodCustom('POST', data, 'cart_index', 'index', 'addtocart', true, (res) => {
 
             if (res.status == 200) {
                 Toastify({

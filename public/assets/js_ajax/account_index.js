@@ -1,8 +1,20 @@
 var thisPage = {};
 
 //tạo tài khoản mới
-$('body').on('click', '#btn_register', function () {
+$('body').on('keypress', '#inputRegisterUsername, #inputName, #inputEmail2, #inputPhonenumber, #inputPassword2, #repassword', function (event) {
+    // Check if the Enter key is pressed
+    if (event.which === 13) {
+        event.preventDefault(); // Prevent the default behavior of the Enter key
+        register(); // Call the register function
+    }
+});
 
+$('body').on('click', '#btn_register', function (event) {
+    event.preventDefault(); // Prevent the default click behavior of the register button
+    register(); // Call the register function
+});
+
+function register() {
     $(".err-modify-tv").remove();
     $("#error_register").addClass('d-none');
 
@@ -45,7 +57,7 @@ $('body').on('click', '#btn_register', function () {
     data.append('email', $("#inputEmail2").val());
     data.append('phonenumber', $("#inputPhonenumber").val());
     data.append('password', $("#inputPassword2").val());
-    _doAjaxNod('POST', data, 'account', 'index', 'register', true, (res) => {
+    _doAjaxNodCustom('POST', data, 'account', 'index', 'register', true, (res) => {
         // console.log(res);
         if (res.status == 200) {
             window.location = domain;
@@ -54,13 +66,25 @@ $('body').on('click', '#btn_register', function () {
             $("#error_register").removeClass('d-none');
             return false;
         }
-    })
+    });
+}
 
-});
 
 //đăng nhập
-$('body').on('click', '#btn_login', function () {
+$('body').on('keypress', '#inputUsername, #inputPassword1', function (event) {
+    // Check if the Enter key is pressed
+    if (event.which === 13) {
+        event.preventDefault(); // Prevent the default behavior of the Enter key
+        login(); // Call the login function
+    }
+});
 
+$('body').on('click', '#btn_login', function (event) {
+    event.preventDefault(); // Prevent the default click behavior of the login button
+    login(); // Call the login function
+});
+
+function login() {
     let status_error = false;
     $(".err-modify-tv").remove();
 
@@ -79,7 +103,7 @@ $('body').on('click', '#btn_login', function () {
 
     data.append('username', $("#inputUsername").val());
     data.append('password', $("#inputPassword1").val());
-    _doAjaxNod('POST', data, 'account', 'index', 'login', true, (res) => {
+    _doAjaxNodCustom('POST', data, 'account', 'index', 'login', true, (res) => {
         // console.log(res);
         if (res.status == 200) {
             window.location = domain + '/trang-chu';
@@ -92,8 +116,7 @@ $('body').on('click', '#btn_login', function () {
             $("#error_login").removeClass('d-none');
             return false;
         }
-    })
-
-});
+    });
+}
 
 

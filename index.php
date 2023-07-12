@@ -98,11 +98,11 @@ $st->assign('meta_description', $setup['meta_description']);
 $st->assign('meta_image', $setup['meta_image']);
 $st->assign('decimal', 0 + $setup['decimal']);
 
-$news_category 	= new news_category();
-$menu 			= new menu();
-$st->assign('lMenu', $user->menu_load('0'));
-$st->assign('lCat', $news_category->load_cat_menu('0'));
-$st->assign('lMenuHome', $menu->list_menu_header_home());
+// $news_category 	= new news_category();
+// $menu 			= new menu();
+// $st->assign('lMenu', $user->menu_load('0'));
+// $st->assign('lCat', $news_category->load_cat_menu('0'));
+// $st->assign('lMenuHome', $menu->list_menu_header_home());
 
 // print_r($news_category->load_cat_menu('0'));
 // exit();

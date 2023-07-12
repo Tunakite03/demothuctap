@@ -31,11 +31,14 @@
                             </thead>
                             <tbody id="tbl_data_cart">
                                 {foreach from=$data item=product} <tr>
-                                        <td>
-                                            <img src="{$domain}/public/assets/img/img_pet/{$product.image}" alt="" width="100">
+                                        <td><a href="/{$product.link_url}-id{$product.product_id}">
+                                                <img src="{$domain}/public/assets/img/img_pet/{$product.image}" alt=""
+                                                    width="100">
+
+                                            </a>
                                         </td>
                                         <td>{$product.name}</td>
-                                        <td>{number_format($product.price,0,'.','.')} VND</td>
+                                        <td>{number_format($product.price*$product.sale,0,'.','.')} VND</td>
                                         <td>
                                             <div class="input-group">
                                                 <button type="button" class="btn btn-outline-primary minus-btn">-
@@ -66,22 +69,29 @@
                     <div class="total-info px-2 py-4" style="background-color: #fff;">
                         <h4 class="py-3 text-center">Thông tin thanh toán</h4>
                         <table class="cart-total table">
-                            {* <tbody>
-                                <tr class="order-subtotal ">
-                                    <td class="cart-total-left"><label>Tổng phụ:</label></td>
+                            <tbody id="payment_body">
+                                <tr class="order-subtotal">
+                                    <td class="cart-total-left"><label><b>Tổng cộng:</b></label></td>
                                     <td class="cart-total-right"><span
-                                            class="value-summary">{number_format($totalMoney.totalMoney,0,'.','.')}
+                                            class="value-summary">{number_format($datatotal.total+$datatotal.reduce, 0, '.', '.')}
+                                            VND</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="cart-total-left"><label><b>Giảm giá:</b></label></td>
+                                    <td class="cart-total-right"><span
+                                            class="value-summary">{number_format($datatotal.reduce, 0, '.', '.')}
                                             VND</span></td>
                                 </tr>
                                 <tr class="order-total">
-                                    <td class="cart-total-left"><label>Tổng cộng:</label></td>
+                                    <td class="cart-total-left"><label><b>Số tiền phải thanh toán:</b></label></td>
                                     <td class="cart-total-right"><span
-                                            class="value-summary">{number_format($totalMoney.totalMoney,0,'.','.')}
+                                            class="value-summary">{number_format($datatotal.total, 0, '.', '.')}
                                             VND</span></td>
                                 </tr>
-                            </tbody> *}
+                            </tbody>
+
                         </table>
-                        <div class="text-end mt-4"> <a href="/checkout" class="btn btn-login"
+                        <div class="text-end mt-4"> <a href="/thanh-toan" class="btn btn-login"
                                 style="border-radius: 5px;">Tiến hành thanh toán</a> </div>
                     </div>
                 </div>

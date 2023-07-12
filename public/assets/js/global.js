@@ -138,8 +138,8 @@ $('body').on('hide.bs.modal', function () {
 // });
 
 function _doAjaxNodCustom(type_, data_, m_, act_, nod_, global_, doSomeThing) {
-    
-    console.log(domain + '/lazyloading/?apikey=' + apikey_public + '&m=' + m_ + '&act=' + act_ + '&nod=' + nod_);
+
+    // console.log(domain + '/lazyloading/?apikey=' + apikey_public + '&m=' + m_ + '&act=' + act_ + '&nod=' + nod_);
 
     if (data_ == '') {
         data_ = new FormData();
@@ -158,10 +158,12 @@ function _doAjaxNodCustom(type_, data_, m_, act_, nod_, global_, doSomeThing) {
         global: global_,
         success: function (respone) {
             var kq = respone.split("##");
-            if (kq.length == 2) {
-                debug_ajaxRunning(kq[0]);
+            if (kq.length > 1) {
+                // debug_ajaxRunning(kq[0]);
+
                 var obj = $.parseJSON(kq['1']);
                 doSomeThing(obj); //trả về kết quả cho javascript
+
             } else {
                 alert_void(respone, 0);
             }
@@ -255,8 +257,9 @@ function _doAjaxNod(type_, data_, m_, act_, nod_, global_, doSomeThing) {
         global: global_,
         success: function (respone) {
             var kq = respone.split("##");
+
             if (kq.length == 2) {
-                debug_ajaxRunning(kq[0]);
+                // debug_ajaxRunning(kq[0]);
                 var obj = $.parseJSON(kq['1']);
                 if (obj.status == 200 || obj.status == 201)
                     doSomeThing(obj); //success respone data from server
@@ -357,12 +360,13 @@ function _doAjaxNodAdmin(type_, data_, m_, act_, nod_, global_, doSomeThing) {
 function debug_ajaxRunning(kq_0) {
     if (kq_0 != '') {
         // kq_0 = kq_0.substring(1, kq_0.length);
-        if (kq_0 != '' && kq_0 != 'done') {
+        if (kq_0 != 'done') {
             alert_void(kq_0.substring(0, kq_0.length - 4));
             printLog("debug_ajaxRunning: Ok: " + kq_0);
+        } else {
+            printLog("debug_ajaxRunning:" + kq_0);
         }
     }
-    printLog("debug_ajaxRunning:" + kq_0);
     return true;
 }
 

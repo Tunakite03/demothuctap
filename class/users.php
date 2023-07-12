@@ -54,6 +54,7 @@ class users
     {
         $this->password = $pass;
     }
+
     public function getpassword()
     {
         return $this->password;
@@ -112,6 +113,20 @@ class users
 
             $rows = $db->executeQuery($sql, 1);
         }
+
+        return $rows;
+    }
+
+    public function getInfoUserById()
+    {
+        global $db;
+        $user_id = $this->get('user_id');
+        $sql = "SELECT *
+        FROM $db->tbl_fix`info_user`
+        WHERE  user_id =  $user_id
+         limit 0,1";
+
+        $rows = $db->executeQuery($sql, 1);
 
         return $rows;
     }

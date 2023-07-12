@@ -11,8 +11,9 @@ switch ($act) {
             $cart = new cart();
             $cart->set('user_id', $_SESSION['user_id']);
             $dataCart = $cart->getlistcart();
-
+            $dataTotalCart = $cart->getTotalInCart();
             $st->assign('data', $dataCart);
+            $st->assign('datatotal', $dataTotalCart);
         }
         break;
     case 'error':
@@ -22,7 +23,7 @@ switch ($act) {
         $cart = new cart();
 
         $product = new products();
-        
+
         $cart->set('product_id', $main->post('product_id'));
         $cart->set('user_id', $_SESSION['user_id']);
         $cart->set('quantity', $main->post('quantity'));

@@ -44,8 +44,8 @@ if ($act == 'index') {
                 if ($result == true) {
                     $cart->set('user_id', $_SESSION['user_id']);
                     $dataCart = $cart->getlistcart();
-
-                    echo 'done##', $main->toJsonData(200, 'Chỉnh sửa thành công', array('product' => $dataCart, 'domain' => $domain));
+                    $totalCart = $cart->getTotalInCart();
+                    echo 'done##', $main->toJsonData(200, 'Chỉnh sửa thành công', array('product' => $dataCart, 'totalInCart' => $totalCart, 'domain' => $domain));
                 }
             } else {
                 echo 'done##', $main->toJsonData(403, 'Đơn hàng này hiện không có', null);

@@ -116,36 +116,27 @@
 
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
                     <a href="/" class="nav-item nav-link active">Trang Chủ</a>
-                    <a class="nav-link " class="nav-item nav-link" href="/cua-hang"  > Shop Chó </a>
+                    <a class="nav-link " class="nav-item nav-link" href="/cua-hang"> Shop Chó </a>
                     <a href="/news" class="nav-item nav-link">Tin Tức</a>
                     <a href="/contact" class="nav-item nav-link">Liên Hệ</a>
                     <a href="/gio-hang" class="nav-item nav-link">Giỏ Hàng</a>
 
                 </div>
-                {* <div class="d-none d-lg-flex ms-2">
-                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="/likeproduct">
-                        <small>
-                            <?php
-                    if (isset($_SESSION['loggedID'])) {
-                        echo ($_SESSION['countLike']['count']);
-                    }
-                    ?> <i class="bi bi-suit-heart-fill text-body"></i>
-                        </small>
-                    </a>
-                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="/cart">
-                        <small>
-                            <?php
-                    if (isset($_SESSION['loggedID'])) {
-                        echo ($_SESSION['countCart']['count']);
-                    }
-                    ?> <i class="fa fa-shopping-bag text-body"></i>
-                        </small>
-                    </a>
-                    <?php
-                    </div> *}
+
 
                 {if !empty($session.user_id)}
+                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="/likeproduct">
+                        <small>
+                            <i class="bi bi-suit-heart-fill text-body"></i>
+                        </small>
+                    </a>
+                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="/gio-hang">
+                        <small>
+                            <i class="fa fa-shopping-bag text-body"></i>
+                        </small>
+                    </a>
                     <div class="dropdown">
+
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="userMenu"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="fa fa-user"></span>

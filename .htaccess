@@ -16,6 +16,7 @@ RewriteRule ^cua-hang/chi-tiet-san-pham/([0-9]+)$ /?m=shop&act=detail&id=$1 [L]
 RewriteRule ^gio-hang$ /?m=cart&act=index [L]
 RewriteRule ^(.*)-id([0-9]+)$ /?m=shop&act=detail&link_url=$1&id=$2 [L]
 RewriteRule ^tim-kiem$ /?m=shop&act=search [L]
+RewriteRule ^thanh-toan$ /?m=order&act=index [L]
 
 
 #url tong quan

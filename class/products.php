@@ -15,9 +15,8 @@ class products extends model
     public function getList_new()
     {
         global $db;
-
-        $sql = "SELECT pd.*, pr.image,pr.price,pr.sale,pr.number_sell FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.id_pd = pd.id WHERE pr.role_img=0  ORDER BY `id` DESC LIMIT 4";
-        $l = $db->executeQuery($sql);
+        $sql = "SELECT pd.*, pr.image FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.product_id = pd.id WHERE pr.role_img=0  ORDER BY `id` DESC LIMIT 4";
+        $l = $db->executeQuery($sql, 4);
 
         return $l;
     }
@@ -25,27 +24,24 @@ class products extends model
     {
         global $db;
 
-        $sql = "SELECT pd.*, pr.image,pr.price,pr.sale,pr.number_sell FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.id_pd = pd.id WHERE pr.role_img=0  ORDER BY `number_sell` DESC LIMIT 4";
-        $l = $db->executeQuery($sql);
+        $sql = "SELECT pd.*, pr.image FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.product_id = pd.id WHERE pr.role_img=0  ORDER BY `number_sold` DESC LIMIT 4";
+        $l = $db->executeQuery($sql, 4);
 
         return $l;
     }
     public function getProductSaleAll()
     {
-
         global $db;
-
-        $sql = "SELECT pd.*, pr.image,pr.price,pr.sale,pr.number_sell FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.id_pd = pd.id WHERE pr.role_img=0 AND pr.sale != 1 ";
+        $sql = "SELECT pd.*, pr.image FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.product_id = pd.id WHERE pr.role_img=0 AND pd.sale != 1 ";
         $l = $db->executeQuery($sql);
 
         return $l;
     }
     public function getProductAll()
     {
-
         global $db;
 
-        $sql = "SELECT pd.*, pr.image,pr.price,pr.sale,pr.number_sell FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.id_pd = pd.id WHERE pr.role_img=0";
+        $sql = "SELECT pd.*, pr.image FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.product_id = pd.id WHERE pr.role_img=0";
         $l = $db->executeQuery($sql);
 
         return $l;
@@ -53,7 +49,7 @@ class products extends model
     public function getProducById()
     {
         global $db;
-        $sql = "SELECT pd.*, pr.image,pr.price,pr.sale,pr.number_sell FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.id_pd = pd.id WHERE pr.role_img=0 AND pd.id=$this->id";
+        $sql = "SELECT pd.*, pr.image FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.product_id = pd.id WHERE pr.role_img=0 AND pd.id=$this->id";
         $l = $db->executeQuery($sql, 1);
 
         return $l;
@@ -63,8 +59,8 @@ class products extends model
         global $db;
         $id = $this->get('id');
         $sql = "SELECT price
-                        FROM properties
-                       WHERE id_pd=$id";
+                        FROM productdogs
+                       WHERE id=$id";
         $result = $db->executeQuery($sql, 1);
 
         return $result;
@@ -75,7 +71,7 @@ class products extends model
         global $db;
         $key = $this->key;
 
-        $sql = "SELECT pd.*, pr.image,pr.price,pr.sale,pr.number_sell FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.id_pd = pd.id WHERE pr.role_img=0 AND pd.name LIKE  '%$key%'";
+        $sql = "SELECT pd.*, pr.image FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.product_id = pd.id WHERE pr.role_img=0 AND pd.name LIKE  '%$key%'";
         $l = $db->executeQuery($sql);
 
         return $l;

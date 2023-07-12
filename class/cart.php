@@ -48,14 +48,27 @@ class cart extends model
     {
         global $db;
         $user_id = $this->user_id;
-        $sql = "SELECT ca.*, pd.name, pd.des, pp.price, pp.price, pp.sale, pp.image FROM $db->tbl_fix$this->class_name ca 
+        $sql = "SELECT ca.*, pd.name, pd.des, pd.price, pd.sale,pd.link_url, pp.image, pp.product_id  FROM $db->tbl_fix$this->class_name ca 
         LEFT JOIN productdogs pd on pd.id = ca.product_id 
-        LEFT JOIN properties pp on pd.id = pp.id_pd 
+        LEFT JOIN properties pp on pd.id = pp.product_id 
          WHERE user_id = $user_id and pp.role_img =0 ORDER BY `id` DESC ";
         $result = $db->executeQuery($sql, 4);
 
         return $result;
     }
+    public function getTotalInCart()
+    {
+        global $db;
+        $user_id = $this->user_id;
+        $sql = "SELECT SUM(pd.price*pd.sale*ca.quantity) AS total, SUM(pd.price*(1-pd.sale)*ca.quantity) AS reduce
+        FROM $db->tbl_fix$this->class_name ca 
+        LEFT JOIN productdogs pd ON pd.id = ca.product_id
+        WHERE user_id = $user_id";
+        $result = $db->executeQuery($sql, 1);
+
+        return $result;
+    }
+
 
     public function check_product()
     {

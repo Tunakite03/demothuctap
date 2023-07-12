@@ -12,9 +12,9 @@ $(document).ready(function () {
         data.append('product_id', product_id)
         data.append('quantity', 1);
 
-        _doAjaxNod('POST', data, 'cart_index', 'index', 'addtocart', true, (res) => {
+        _doAjaxNodCustom('POST', data, 'cart_index', 'index', 'addtocart', true, (res) => {
 
-            if (res.status == 200) {
+            if (res.status === 200) {
                 Toastify({
                     text: res.message,
                     duration: 3000, // Set the duration for how long the toast should be displayed
@@ -29,7 +29,6 @@ $(document).ready(function () {
                     gravity: "top-right", // Set the position of the toast (e.g., "top", "bottom", "center")
                     close: true, // Enable the close button on the toast
                     backgroundColor: "#FF0000",
-
                 }).showToast();
                 return false;
             }

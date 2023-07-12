@@ -83,7 +83,7 @@
                 <div class="tab-pane fade show active" id="dogItem" role="tabpanel" aria-labelledby="dogItem-tab">
                     <div class="row g-4">
                         <!--getListProductNew_Dog-->
-                        {foreach from=$dataProductNews item=item key=key}
+                         {foreach from=$dataProductNews item=item key=key}
                             <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                                 <div class="product-item">
                                     <a class="d-block h5 mb-2" href="/{$item.link_url}-id{$item.id}">
@@ -115,7 +115,7 @@
                                             </span>
                                             <span class="me-1 d-block mb-2" href="">
                                                 lượt mua:
-                                                {$item.number_sell}
+                                                {$item.number_sold}
                                             </span>
 
                                         </div>
