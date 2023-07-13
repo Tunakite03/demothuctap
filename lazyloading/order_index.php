@@ -7,7 +7,7 @@ if ($act == 'index') {
             if (!isset($_SESSION['user_id'])) {
                 echo 'done##', $main->toJsonData(403, 'Vui lòng đăng nhập', null);
             } else {
-                $users = new Infouser();
+                $users = new infouser();
                 $users->set('fullname', $main->post('fullname'));
                 $users->set('user_id', $_SESSION['user_id']);
                 $users->set('phone', $main->post('phone'));
@@ -33,7 +33,7 @@ if ($act == 'index') {
             if (!isset($_SESSION['user_id'])) {
                 echo 'done##', $main->toJsonData(403, 'Vui lòng đăng nhập', null);
             } else {
-                $users = new Infouser();
+                $users = new infouser();
                 $cart = new cart();
                 $order = new orders();
                 $product = new products();

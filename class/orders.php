@@ -38,4 +38,19 @@ class orders extends model
 
         return true;
     }
+
+    function getListOrderItem()
+    {
+
+        global $db;
+        $user_id = $this->user_id;
+
+        $sql = "SELECT od.*, odi.quantity, odi.price, pp.image, pr.name, pr.link_url  FROM orders od
+        JOIN order_item odi on od.id = odi.order_id 
+        JOIN productdogs pr on pr.id = odi.product_id 
+        LEFT JOIN properties pp on pr.id = pp.product_id 
+        WHERE user_id = $user_id and pp.role_img =0  ORDER BY `id` DESC";
+        $result = $db->executeQuery($sql, 4);
+        return $result;
+    }
 }

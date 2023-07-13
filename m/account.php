@@ -19,16 +19,22 @@ switch ($act) {
         }
         break;
     case 'profile':
-        $users = new users();
         if (!isset($_SESSION['user_id'])) {
-            $main->redirect('/404');
+            $main->redirect('/tai-khoan');
             break;
         } else {
+            $users = new users();
+            $infouser = new infouser();
+            $order = new orders();
+            $order->set('user_id', $_SESSION['user_id']);
             $users->set('user_id', $_SESSION['user_id']);
-
+            $infouser->set('user_id', $_SESSION['user_id']);
             $data_user = $users->getUserById();
-
+            $data_infouser = $infouser->getInfoUserById();
+            $data_order = $order->getListOrderItem();
             $st->assign('data_user', $data_user);
+            $st->assign('dataInfoUser', $data_infouser);
+            $st->assign('dataOrderItem', $data_order);
         }
         break;
     case 'error':

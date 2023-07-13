@@ -152,7 +152,7 @@ a#button-1:hover img {
     font-family: 'Raleway', sans-serif;
     display: inline-flex;
     height: 40px;
-    width: 150px;
+    width: 100%;
     border: 2px solid #BFC0C0;
     margin: 20px 20px 20px 20px;
     color: #BFC0C0;
@@ -173,9 +173,10 @@ a#button-1:hover img {
     overflow: hidden;
 }
 
-.button_order:hover {
-    box-shadow: 1px 1px 25px 10px rgba(58, 199, 255, 0.4);
-}
+.nav-tabs .nav-link.active {
+    background-color: #f8f9fa;
+    color: #000;
+  }
 
 .button_order:before {
     content: "";

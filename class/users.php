@@ -283,22 +283,13 @@ class users extends model
         return true;
     }
 
-    public function update()
+    public function updateUser()
     {
         global $db;
-
-        if ($this->getpassword() != '') {
-            $password = $this->getpassword();
-            $pass = md5($password);
-            $arr['password'] = $pass;
-        }
-
-        $id = $this->getid();
-        // $arr['username'] = $this->getusername();
-        $arr['fullname'] = $this->getfullname();
-        $arr['phone'] = $this->getphonenumber();
-        // $arr['email'] = $this->getemail();
-        $db->record_update($db->tbl_fix . '`user`', $arr, " `id` = '$id' ");
+        $id = $this->user_id;
+        $arr['fullname'] = $this->fullname;
+        $arr['phonenumber'] = $this->phonenumber;
+        $db->record_update($db->tbl_fix . '`users`', $arr, " `user_id` = '$id' ");
 
         return true;
     }
@@ -332,7 +323,7 @@ class users extends model
     {
         global $db;
         $sql = "SELECT * FROM `users` WHERE user_id=$this->user_id";
-        $rows = $db->executeQuery($sql,1);
+        $rows = $db->executeQuery($sql, 1);
         return $rows;
     }
 }

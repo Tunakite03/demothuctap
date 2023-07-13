@@ -1,5 +1,5 @@
 <?php
-class Infouser extends model
+class infouser extends model
 {
     private $id;
     private $user_id;

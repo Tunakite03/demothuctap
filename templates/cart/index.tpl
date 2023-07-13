@@ -1,10 +1,5 @@
 <section class="content-section" style="background-color: #f5f5f7;">
-    <div class="container-fluid"> {if !empty($errorsCart)} <div class="alert alert-warning" role="alert">
-                <h4 class="alert-heading">Lỗi: </h4> {foreach from=$errorsCart item=error} <p> {$error} </p>
-                {/foreach}
-                <hr>
-            </div>
-        {/if}
+    <div class="container-fluid"> 
         <div class="row"> {if empty($data)}
                 <div class="col-12 p-5">
                     <h4 class="text-center px4 py-3">Giỏ hàng của bạn đang trống !!</h4>
