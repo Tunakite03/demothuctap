@@ -18,6 +18,19 @@ switch ($act) {
             exit();
         }
         break;
+    case 'profile':
+        $users = new users();
+        if (!isset($_SESSION['user_id'])) {
+            $main->redirect('/404');
+            break;
+        } else {
+            $users->set('user_id', $_SESSION['user_id']);
+
+            $data_user = $users->getUserById();
+
+            $st->assign('data_user', $data_user);
+        }
+        break;
     case 'error':
         $title .= 'Loi';
         break;

@@ -294,10 +294,10 @@ class users extends model
         }
 
         $id = $this->getid();
-        $arr['username'] = $this->getusername();
+        // $arr['username'] = $this->getusername();
         $arr['fullname'] = $this->getfullname();
         $arr['phone'] = $this->getphonenumber();
-        $arr['email'] = $this->getemail();
+        // $arr['email'] = $this->getemail();
         $db->record_update($db->tbl_fix . '`user`', $arr, " `id` = '$id' ");
 
         return true;
@@ -327,6 +327,13 @@ class users extends model
             exit();
         }
         return true;
+    }
+    public function getUserById()
+    {
+        global $db;
+        $sql = "SELECT * FROM `users` WHERE user_id=$this->user_id";
+        $rows = $db->executeQuery($sql,1);
+        return $rows;
     }
 }
 

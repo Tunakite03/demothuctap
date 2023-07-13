@@ -6,10 +6,31 @@
             <div class="col-lg-3 col-md-5">
                 <div class="sidebar">
                     <div class="sidebar-item">
-                        <h4 class="" style="font-weight: 700;">Danh mục sản phẩm</h4>
-                        {* danh mục *}
+                        <h4 class="sidebar-title">DANH MỤC SẢN PHẨM</h4>
+                        <hr>
+                        <ul class="sidebar-menu">
+                            {foreach $dataCateRoot as $item}
+                                {if $item.root_id eq 0}
+                                    <li class="sidebar-item">
+                                        <p class="sidebar-subtitle cate_click">
+                                            <a class="sidebar-link" data-cate-id={$item.id}>{$item.category}</a>
+                                        </p>
+                                        <ul class="sidebar-submenu">
+                                            {foreach $dataCateNotRoot as $subitem}
+                                                {if $subitem.root_id eq $item.id}
+                                                    <li>
+                                                        <p class="subcate_click"><a class="sidebar-link"
+                                                                data-subcate-id={$subitem.id}>{$subitem.category}</a></p>
+                                                    </li>
+                                                {/if}
+                                            {/foreach}
+                                        </ul>
+                                    </li>
+                                {/if}
+                            {/foreach}
+                        </ul>
                     </div>
-                    {* <div class="sidebar-item">
+                    {* <div class="sidebar-item filter_price">
                         <h4>Giá</h4>
                         <div class="price-range-wrap">
                             <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
@@ -59,7 +80,7 @@
                                                     </span></a></h6>
                                             <!-- <h5><a href="#">Raisin’n’nuts</a></h5> -->
                                             <div class="product__item__price">
-                                                
+
                                                 <p style="color: crimson;">
                                                     {$formatted_price = ($item.price*(1-(1-$item.sale)))|number_format:0:',':'.'}{$formatted_price}đ
                                                 </p><span>
@@ -83,7 +104,7 @@
                     {$count = $count + 1}
                 {/foreach}
                 {if $count > 0}
-                    <div class="container">
+                    <div class="container product_show">
                         <div class="col-lg-4 col-md-5">
                             <div class="filter-sort">
                                 <span>Xem Theo:</span>
@@ -98,14 +119,12 @@
                                 <div class="row justify-content-center">
                                     <div class="col-12 text-center">
                                         <div class="filter-found">
-                                            <h6>Có <span>{$count}</span> sản phẩm</h6>
+
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" id="show_product">
                                 {foreach from=$dataproductall item=item key=key}
                                     <div class="col-lg-4 col-md-6 col-sm-6">
                                         <div class="product-item">
