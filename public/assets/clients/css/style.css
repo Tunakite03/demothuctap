@@ -6,8 +6,8 @@
     --dark: #111111;
     --info: #0066CC;
 }
-
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400');
+
 
 * {
     margin: 0;
@@ -95,7 +95,6 @@ input[type=number]::-webkit-inner-spin-button {
 .btn.btn-outline-secondary:hover {
     color: #FFFFFF;
 }
-
 #arrow-hover {
     width: 15px;
     height: 10px;
@@ -195,8 +194,6 @@ a#button-1:hover img {
 .button_order:hover:before {
     left: 100%;
 }
-
-
 
 
 
