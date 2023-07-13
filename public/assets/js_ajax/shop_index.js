@@ -40,7 +40,7 @@ function filter(cate_id = "", sort = "") {
         if (res.status == 200) {
             var domain = res.data.domain;
             domain = domain.replace(/"/g, '');
-            
+
             if (res.data.products.length == 0) {
                 $('#show_product').html('<p>Không có sản phẩm nào.</p>');
             } else {

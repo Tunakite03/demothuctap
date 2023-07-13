@@ -190,6 +190,7 @@ class db
 
 	public function executeQuery_list($sql)
 	{
+
 		$rsl = $this->executeQuery($sql);
 		$kq = array();
 		while ($row = mysqli_fetch_assoc($rsl)) {

@@ -122,7 +122,6 @@ class products extends model
         $orderby = "";
         $set = "";
         $cate_id = $this->get('cate_id');
-        
 
         if ($cate_id != null) {
             $set = " AND c.id = $cate_id OR c.root_id = $cate_id";
@@ -131,11 +130,9 @@ class products extends model
 
         if ($sort == 'DESC') {
             $orderby =  " ORDER BY p.price DESC";
-        }
-        elseif($sort == 'ASC'){
+        } elseif ($sort == 'ASC') {
             $orderby =  " ORDER BY p.price ASC";
         }
-  
 
         $sql = "SELECT *,pr.image,pr.role_img
         FROM $db->tbl_fix$this->class_name p
@@ -144,6 +141,7 @@ class products extends model
         WHERE pr.role_img=0 $set $orderby";
 
         $l = $db->executeQuery_list($sql);
+
         return $l;
     }
     public function updateProduct($arrKey)
