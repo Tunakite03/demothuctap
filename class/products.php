@@ -8,6 +8,14 @@ class products extends model
     protected $des;
     protected $link_url;
     protected $key;
+    protected $is_publish;
+    protected $sale;
+    protected $price;
+    protected $quantity;
+    protected $number_sold;
+
+
+
 
 
 
@@ -54,17 +62,48 @@ class products extends model
 
         return $l;
     }
+    public function getInfoProductById()
+    {
+        global $db;
+        $sql = "SELECT * FROM $db->tbl_fix$this->class_name  WHERE id=$this->id";
+        $l = $db->executeQuery($sql, 1);
+        return $l;
+    }
+
     public function getPriceProductById()
     {
         global $db;
         $id = $this->get('id');
-        $sql = "SELECT price
+        $sql = "SELECT ROUND((price*sale),2) as price
                         FROM productdogs
                        WHERE id=$id";
         $result = $db->executeQuery($sql, 1);
 
-        return $result;
+        return $result['price'];
     }
+    public function getQuantityProductById()
+    {
+        global $db;
+        $id = $this->get('id');
+        $sql = "SELECT quantity
+                        FROM productdogs
+                       WHERE id=$id";
+        $result = $db->executeQuery($sql, 1);
+
+        return $result['quantity'];
+    }
+    public function getNumberSoldProductById()
+    {
+        global $db;
+        $id = $this->get('id');
+        $sql = "SELECT number_sold
+                        FROM productdogs
+                       WHERE id=$id";
+        $result = $db->executeQuery($sql, 1);
+
+        return $result['number_sold'];
+    }
+
     public function getProductSearch()
     {
 
@@ -75,5 +114,16 @@ class products extends model
         $l = $db->executeQuery($sql);
 
         return $l;
+    }
+
+    public function updateProduct($arrKey)
+    {
+        global $db;
+        $id = $this->id;
+        foreach ($arrKey as $key => $value) {
+            $arr[$value] = $this->$value;
+        }
+        $db->record_update($db->tbl_fix . $this->class_name, $arr, 'id =' . $id);
+        return true;
     }
 }

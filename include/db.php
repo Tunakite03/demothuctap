@@ -232,13 +232,11 @@ class db
 
 		if ($where) $where_and = " WHERE " . $where;
 		$queryString .= implode(',', $fields) . $where_and;
-
 		return $this->executeQuery($queryString);
 	}
 
 	public function record_delete($table_name, $where = '')
 	{
-		echo $table_name;
 		if ($where)	$whereand = " WHERE " . $where;
 		$queryString = "DELETE FROM " . $table_name . $whereand;
 		return $this->executeQuery($queryString);

@@ -1,5 +1,5 @@
 <?php
-class users
+class users extends model
 {
     private $user_id;
     private $fullname;
@@ -208,13 +208,13 @@ class users
         return $rows;
     }
 
-    public function get_detail($username)
-    {
-        global $db;
-        $sql = "SELECT * FROM " . $db->tbl_fix . "`users` WHERE `username`='" . str_replace("'", "\'", $username) . "'";
-        $rows = $db->executeQuery($sql, 1);
-        return $rows;
-    }
+    // public function get_detail($username)
+    // {
+    //     global $db;
+    //     $sql = "SELECT * FROM " . $db->tbl_fix . "`users` WHERE `username`='" . str_replace("'", "\'", $username) . "'";
+    //     $rows = $db->executeQuery($sql, 1);
+    //     return $rows;
+    // }
 
     public function get_fullname($username)
     {
@@ -258,12 +258,12 @@ class users
     }
 
 
-    public function delete($username)
-    {
-        global $db;
-        $db->record_delete($db->tbl_fix . "user", " `username`='" . str_replace("'", "\'", $username) . "' ");
-        return true;
-    }
+    // public function delete($username)
+    // {
+    //     global $db;
+    //     $db->record_delete($db->tbl_fix . "user", " `username`='" . str_replace("'", "\'", $username) . "' ");
+    //     return true;
+    // }
 
     public function add()
     {

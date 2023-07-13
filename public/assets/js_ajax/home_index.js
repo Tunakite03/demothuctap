@@ -17,7 +17,7 @@ $(document).ready(function () {
             if (res.status === 200) {
                 Toastify({
                     text: res.message,
-                    duration: 3000, // Set the duration for how long the toast should be displayed
+                    duration: 2000, // Set the duration for how long the toast should be displayed
                     gravity: "top-right", // Set the position of the toast (e.g., "top", "bottom", "center")
                     close: true, // Enable the close button on the toast
                     backgroundColor: "#3cb815",
@@ -25,7 +25,7 @@ $(document).ready(function () {
             } else {
                 Toastify({
                     text: res.message,
-                    duration: 3000, // Set the duration for how long the toast should be displayed
+                    duration: 2000, // Set the duration for how long the toast should be displayed
                     gravity: "top-right", // Set the position of the toast (e.g., "top", "bottom", "center")
                     close: true, // Enable the close button on the toast
                     backgroundColor: "#FF0000",

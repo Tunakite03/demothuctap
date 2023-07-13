@@ -19,7 +19,7 @@ $(document).on('click', '.plus-btn', function () {
         } else {
             Toastify({
                 text: res.message,
-                duration: 3000, // Set the duration for how long the toast should be displayed
+                duration: 2000, // Set the duration for how long the toast should be displayed
                 gravity: "top-right", // Set the position of the toast (e.g., "top", "bottom", "center")
                 close: true, // Enable the close button on the toast
                 backgroundColor: "#FF0000",
@@ -47,7 +47,7 @@ $(document).on('click', '.minus-btn', function () {
         } else {
             Toastify({
                 text: res.message,
-                duration: 3000, // Set the duration for how long the toast should be displayed
+                duration: 2000, // Set the duration for how long the toast should be displayed
                 gravity: "top-right", // Set the position of the toast (e.g., "top", "bottom", "center")
                 close: true, // Enable the close button on the toast
                 backgroundColor: "#FF0000",
@@ -86,7 +86,7 @@ $(document).on('click', '.delete-product', function () {
                     fetchData(res.data.product, domain, res.data.totalInCart, "#tbl_data_cart");
                     Toastify({
                         text: res.message,
-                        duration: 3000, // Set the duration for how long the toast should be displayed
+                        duration: 2000, // Set the duration for how long the toast should be displayed
                         gravity: "top-right", // Set the position of the toast (e.g., "top", "bottom", "center")
                         close: true, // Enable the close button on the toast
                         backgroundColor: "#3cb815",
@@ -95,7 +95,7 @@ $(document).on('click', '.delete-product', function () {
                 } else {
                     Toastify({
                         text: res.message,
-                        duration: 3000, // Set the duration for how long the toast should be displayed
+                        duration: 2000, // Set the duration for how long the toast should be displayed
                         gravity: "top-right", // Set the position of the toast (e.g., "top", "bottom", "center")
                         close: true, // Enable the close button on the toast
                         backgroundColor: "#FF0000",

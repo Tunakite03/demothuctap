@@ -27,8 +27,15 @@ class cart extends model
     {
         global $db;
         $cart_id = $this->id;
-        $arr['quantity'] = $this->quantity;
         $db->record_delete($db->tbl_fix . $this->class_name, 'id =' . $cart_id);
+
+        return true;
+    }
+    public function deleteCartByUserId()
+    {
+        global $db;
+        $user_id = $this->user_id;
+        $db->record_delete($db->tbl_fix . $this->class_name, 'user_id =' . $user_id);
 
         return true;
     }
