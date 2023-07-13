@@ -7,6 +7,8 @@
     --info: #0066CC;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400');
+
 * {
     margin: 0;
     padding: 0;
@@ -93,6 +95,109 @@ input[type=number]::-webkit-inner-spin-button {
 .btn.btn-outline-secondary:hover {
     color: #FFFFFF;
 }
+
+#arrow-hover {
+    width: 15px;
+    height: 10px;
+    position: absolute;
+    transform: translateX(60px);
+    opacity: 0;
+    -webkit-transition: all .25s cubic-bezier(.14, .59, 1, 1.01);
+    transition: all .15s cubic-bezier(.14, .59, 1, 1.01);
+    margin: 0;
+    padding: 0 5px;
+
+}
+
+a#button-1:hover img {
+    width: 15px;
+    opacity: 1;
+    transform: translateX(50px);
+}
+
+
+
+
+.button_more:hover {
+    background: #ccc;
+    color: #fff
+}
+
+.button_more {
+    font-family: 'Raleway', sans-serif;
+    display: inline-flex;
+    height: 40px;
+    width: 150px;
+    border: 2px solid #BFC0C0;
+    margin: 20px 20px 20px 20px;
+    color: #BFC0C0;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: .8em;
+    letter-spacing: 1.5px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+.wrap-btn-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.wrap-btn-more .button_order {
+    font-family: 'Raleway', sans-serif;
+    display: inline-flex;
+    height: 40px;
+    width: 150px;
+    border: 2px solid #BFC0C0;
+    margin: 20px 20px 20px 20px;
+    color: #BFC0C0;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: .8em;
+    letter-spacing: 1.5px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+.button_order {
+    text-decoration: none;
+    border: 2px solid #BFC0C0;
+    position: relative;
+    overflow: hidden;
+}
+
+.button_order:hover {
+    box-shadow: 1px 1px 25px 10px rgba(58, 199, 255, 0.4);
+}
+
+.button_order:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(146, 148, 248, 0.4),
+            transparent);
+    transition: all 650ms;
+}
+
+.button_order:hover:before {
+    left: 100%;
+}
+
+
+
+
 
 .btn-square {
     width: 38px;
