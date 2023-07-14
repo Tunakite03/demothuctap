@@ -170,32 +170,39 @@
                                 </div>
                             </div>
                         {else}
-                            <div class=" col-12 mt-4 " id="cart_wrapper">
+                            <div class="col-12 mt-4 border-start border-2" id="cart_wrapper">
                                 <div class="container p-2 py-4" style="background-color: #fff;">
                                     {foreach from=$dataOrderItem item=product}
-                                        <div class="d-flex p-2" style="border: 1px solid #ccc;  ">
-                                            <a href="/{$product.link_url}-id{$product.product_id}">
+                                        <div class="d-flex p-2 justify-content-around border-bottom  border-2 p-2">
+                                            <a href="/chi-tiet-don-hang-{$product.id}">
                                                 <img src="{$domain}/public/assets/img/img_pet/{$product.image}" alt=""
-                                                    width="100">
+                                                    width="100" class="border border-1">
                                             </a>
                                             <div class="wrap-content-product flex-column">
                                                 <div style="width: 300px">
-                                                    {$product.name}
+                                                    <strong>{$product.name}</strong>
                                                 </div> <br>
                                                 <span>
-                                                    Giá: {number_format($product.price,0,'.','.')} VND
+                                                    <strong>
+                                                        Giá:
+                                                    </strong>
+                                                    {number_format($product.price,0,'.','.')} VND
                                                 </span> <br>
                                                 <span>
-                                                    Số lượng: {$product.quantity}
+                                                    <strong>
+                                                        Số lượng:
+                                                    </strong>
+                                                    {$product.quantity}
                                                 </span> <br>
                                             </div>
                                             <span>
-                                                Tổng tiền: {number_format($product.price*$product.quantity,0,'.','.')}
+                                                <strong>Tổng tiền:</strong>
+                                                {number_format($product.price*$product.quantity,0,'.','.')}
                                                 VND
                                             </span>
                                             <span>
-                                                Trạng thái
-                                                {$product.status}
+                                                <strong>Trạng thái</strong> <br>
+                                                {$product.status_name}
                                             </span>
                                         </div>
                                     {/foreach}

@@ -11,18 +11,33 @@ function fetchLocationData(url, targetElementId) {
 
             if (targetElementId == "province") {
                 $.each(data, function (index, item) {
-                    const option = $('<option></option>').val(item.code).text(item.name).attr('data-name', item.name);
+                    let option;
+                    if (provinceInit == item.name) {
+                        option = $('<option selected></option>').val(item.code).text(item.name).attr('data-name', item.name);
+                    } else {
+                        option = $('<option></option>').val(item.code).text(item.name).attr('data-name', item.name);
+                    }
                     targetElement.append(option);
                 });
             }
             else if (targetElementId.includes("district")) {
                 $.each(data.districts, function (index, item) {
-                    const option = $('<option></option>').val(item.code).text(item.name).attr('data-name', item.name);
+                    let option;
+                    if (districtInit == item.name) {
+                        option = $('<option selected></option>').val(item.code).text(item.name).attr('data-name', item.name);
+                    } else {
+                        option = $('<option></option>').val(item.code).text(item.name).attr('data-name', item.name);
+                    }
                     targetElement.append(option);
                 })
             } else {
                 $.each(data.wards, function (index, item) {
-                    const option = $('<option></option>').val(item.code).text(item.name).attr('data-name', item.name);
+                    let option;
+                    if (wardInit == item.name) {
+                        option = $('<option selected></option>').val(item.code).text(item.name).attr('data-name', item.name);
+                    } else {
+                        option = $('<option></option>').val(item.code).text(item.name).attr('data-name', item.name);
+                    }
                     targetElement.append(option);
                 })
             }
@@ -35,6 +50,9 @@ function fetchLocationData(url, targetElementId) {
     });
 }
 const API_ENDPOINT = 'https://provinces.open-api.vn/api';
+var provinceInit = $('#province').val();
+var districtInit = $('#district').val();
+var wardInit = $('#ward').val();
 
 $('#province').one('click', function () {
     const districtUrl = `${API_ENDPOINT}/p/`;
