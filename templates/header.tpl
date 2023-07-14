@@ -118,7 +118,7 @@
                     <a href="/" class="nav-item nav-link active">Trang Chủ</a>
                     <a class="nav-link " class="nav-item nav-link" href="/cua-hang"> Shop Chó </a>
                     <a href="/news" class="nav-item nav-link">Tin Tức</a>
-                    <a href="/contact" class="nav-item nav-link">Liên Hệ</a>
+                    <a href="/lien-he" class="nav-item nav-link">Liên Hệ</a>
                     <a href="/gio-hang" class="nav-item nav-link">Giỏ Hàng</a>
 
                 </div>
