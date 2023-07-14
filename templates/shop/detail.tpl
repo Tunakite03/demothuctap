@@ -60,7 +60,7 @@
 
                 <div class="mb-3">
                     <input type="number" value="{$data_detail.id}" hidden id="product_id">
-                    <label for="quantity" class="form-label">Số lượng:</label>
+                    <label for="quantity" class="form-label">Số lượng: {$data_detail.quantity}</label>
                     <div class="input-group">
                         <button type="button" class="btn btn-outline-primary minus-btn" id="minus">-</button>
                         <input style="width: 60px; padding: 0 5px;" type="number"
@@ -70,8 +70,8 @@
                 </div>
                 <div class="data-action">
                     <button type="button" class="btn btn-warning" id="add_to_cart">Thêm vào giỏ hàng</button>
-                    <a class="btn btn-success" href="{$domain}/likedata/addtolike/{$data_detail.id}"><i
-                            class="bi bi-suit-heart-fill"></i></a>
+                    <button class="btn btn-success" id="insertLike"><i class="bi bi-suit-heart-fill"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -147,3 +147,8 @@
 </section>
 
 <script type="text/javascript" src="{$domain}/public/assets/clients/js/detail.js"></script>
+
+<script>
+
+
+</script>

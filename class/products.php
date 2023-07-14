@@ -147,7 +147,9 @@ class products extends model
         foreach ($arrKey as $key => $value) {
             $arr[$value] = $this->$value;
         }
+
         $db->record_update($db->tbl_fix . $this->class_name, $arr, 'id =' . $id);
+
         return true;
     }
 }

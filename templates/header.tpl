@@ -125,7 +125,7 @@
 
 
                 {if !empty($session.user_id)}
-                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="/likeproduct">
+                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="/yeu-thich">
                         <small>
                             <i class="bi bi-suit-heart-fill text-body"></i>
                         </small>

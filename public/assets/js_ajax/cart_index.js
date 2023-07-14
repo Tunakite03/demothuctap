@@ -70,9 +70,14 @@ $(document).on('click', '.delete-product', function () {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Đồng ý',
         cancelButtonText: 'Hủy bỏ'
+
     }).then((result) => {
+
         if (result.isConfirmed) {
+
             var cart_id = $(this).closest('tr').find('.quantity-pro').data('cart-id');
+
+            
             // Create a new FormData object
             var formData = new FormData();
             formData.append('id', cart_id);
@@ -148,6 +153,7 @@ function fetchData(data, domain, totalInCart, id) {
       `;
         });
         $(id).html(newTbodyContent);
+        
         var totalCart = parseFloat(totalInCart.reduce) + parseFloat(totalInCart.total);
 
         newBodyPayment = `<tr class="order-subtotal">

@@ -5,11 +5,10 @@
             đến bạn trong thời gian sớm nhất. Chúc bạn có một ngày mới tốt lành.</p>
     </div>
 
-
     <div class="text-center wrap-btn-more">
         <a id="button-1" class="button_more" href="/cua-hang">Shop Now!<img id="arrow-hover"
                 src="https://github.com/atloomer/atloomer.github.io/blob/master/img/iconmonstr-paper-plane-1-120.png?raw=true" /></a>
-        <a href="/don-hang-cua-toi" class="button_order">Xem đơn hàng</a>
+        <a href="/don-hang-cua-toi" class="button_order" style="width: 200px">Xem đơn hàng</a>
     </div>
 
 </section>

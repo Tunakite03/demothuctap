@@ -1,5 +1,5 @@
 <section class="content-section" style="background-color: #f5f5f7;">
-    <div class="container-fluid"> 
+    <div class="container-fluid">
         <div class="row"> {if empty($data)}
                 <div class="col-12 p-5">
                     <h4 class="text-center px4 py-3">Giỏ hàng của bạn đang trống !!</h4>
@@ -25,7 +25,8 @@
                                 </tr>
                             </thead>
                             <tbody id="tbl_data_cart">
-                                {foreach from=$data item=product} <tr>
+                                {foreach from=$data item=product} 
+                                    <tr>
                                         <td><a href="/{$product.link_url}-id{$product.product_id}">
                                                 <img src="{$domain}/public/assets/img/img_pet/{$product.image}" alt=""
                                                     width="100">
@@ -38,11 +39,13 @@
                                             <div class="input-group">
                                                 <button type="button" class="btn btn-outline-primary minus-btn">-
                                                 </button>
+
                                                 <input type="number" value="{$product.quantity}" min="1"
                                                     style="width: 60px; padding: 0 5px;"
                                                     class="btn btn-outline-primary quantity-pro outline-none"
                                                     id="quantity_pro_{$product.id}" name="quantity[{$product.id}]" disabled
-                                                    data-cart-id="{$product.id}">
+                                                    data-cart-id="{$product.id}" >
+
                                                 <button type="button" class="btn btn-outline-primary plus-btn">+
                                                 </button>
                                             </div>
