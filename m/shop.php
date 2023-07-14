@@ -15,18 +15,24 @@ switch ($act) {
 
         $product = new products();
         $cate = new product_category();
-
+  
+      
         $data_products_sale = $product->getProductSaleAll();
         $data_products_all = $product->getProductAll();
-
         $data_cate_root = $cate->getListCateRoot();
         $data_cate_not_root = $cate->getListCateNotRoot();
 
+        $count_pd = count($product->getProductAll());
+
+    
+
+
         $st->assign('dataproductsale', $data_products_sale);
         $st->assign('dataproductall', $data_products_all);
-
         $st->assign('dataCateRoot', $data_cate_root);
         $st->assign('dataCateNotRoot', $data_cate_not_root);
+        $st->assign('count_pd', $count_pd);
+
         break;
     case 'detail':
         $title .= 'chi tiết san phẩm';

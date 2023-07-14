@@ -99,11 +99,7 @@
 
 
                 <!-- products -->
-                {$count = 0}
-                {foreach from=$dataproductall item=item key=key}
-                    {$count = $count + 1}
-                {/foreach}
-                {if $count > 0}
+                {if $count_pd > 0}
                     <div class="container product_show">
                         <div class="col-lg-4 col-md-5">
                             <div class="filter-sort">
@@ -131,16 +127,13 @@
                                             <div class="product-item-pic set-bg">
                                                 <img src="{$domain}/public/assets/img/img_pet/{$item.image}" alt=""
                                                     width="100%">
-
                                                 <ul class="product__item__pic__hover">
                                                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                                 </ul>
                                             </div>
                                             <div class="product-item-text">
-                                                <h6><a href="/{$item.link_url}-id{$item.id}"><span>
-                                                            {$item.name}
-                                                        </span></a></h6>
+                                                <h6><a href="/{$item.link_url}-id{$item.id}"><span>{$item.name}</span></a></h6>
                                                 <span class="text-secondary me-1">
                                                     {if $item.sale == 1}
                                                         <h5 style="color:red;">
@@ -159,7 +152,6 @@
                                         </div>
                                     </div>
                                 {/foreach}
-                                {* phân trang *}
                             </div>
                         </div>
                     </div>

@@ -5,15 +5,15 @@ if ($act == 'index') {
     switch ($nod) {
         case 'filter':
             $product = new products();
+
             $cate_id = $main->post('cate_id');
             $sort = $main->post('sort');
-            // $keyword=$main->post('keyword');
-
+            
             $product->set('cate_id', $cate_id);
-          
 
             $data_products_all = $product->getProductFilter($sort);
-
+       
+            
             echo 'done##', $main->toJsonData(200, 'set cate success', array('products' => $data_products_all, 'domain' => $domain));
             break;
 

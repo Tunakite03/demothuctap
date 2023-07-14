@@ -8,6 +8,8 @@ class products extends model
     protected $des;
     protected $link_url;
     protected $key;
+    protected $limit;
+
 
 
 
@@ -42,7 +44,7 @@ class products extends model
         global $db;
 
         $sql = "SELECT pd.*, pr.image FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.product_id = pd.id WHERE pr.role_img=0";
-        $l = $db->executeQuery($sql);
+        $l = $db->executeQuery($sql,4);
 
         return $l;
     }
@@ -78,10 +80,10 @@ class products extends model
     }
     public function getProductFilter($sort)
     {
-
         global $db;
         $orderby = "";
         $set = "";
+   
         $cate_id = $this->get('cate_id');
         
 
@@ -102,9 +104,10 @@ class products extends model
         FROM $db->tbl_fix$this->class_name p
         JOIN product_category c ON p.cate_id = c.id
         JOIN properties pr ON p.id = pr.product_id
-        WHERE pr.role_img=0 $set $orderby";
+        WHERE  pr.role_img=0 $set $orderby";
 
         $l = $db->executeQuery_list($sql);
+        print_r($sql);
         return $l;
     }
 }
