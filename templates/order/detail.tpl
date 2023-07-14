@@ -19,7 +19,8 @@
                     <h5>Trạng thái đơn hàng</h5>
                     <div class="flex-column">
                         <div class="p-1"><strong>Ngày đặt:</strong> {$dataOrderItem.date}</div>
-                        <div class="p-1" id="status-order"><strong>Tình trạng: </strong> {$dataOrderItem.status_name} </div>
+                        <div class="p-1" id="status-order"><strong>Tình trạng: </strong> {$dataOrderItem.status_name}
+                        </div>
                         <div class="p-1"><strong>Phương thức thanh toán:</strong>
                             {if $dataOrderItem.payment_method == 1}
                                 Thanh toán trực tiếp
