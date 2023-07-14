@@ -215,6 +215,7 @@ class db
 			// $values[] = "'" . str_replace("'", "\'", $value) . "'";
 		}
 		$queryString .= implode(',', $columns) . ") VALUES (" . implode(',', $values) . ") ";
+	
 		return $this->executeQuery($queryString);
 	}
 

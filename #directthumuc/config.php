@@ -3,7 +3,7 @@
 $server_sql = 'localhost';
 $user_sql   = 'root';
 $pass_sql   = '';
-$database   = 'demothuctap'; //vinateks db
+$database   = 'demodemo'; //vinateks db
 
 $db = new db();
 $db->setServer($server_sql);

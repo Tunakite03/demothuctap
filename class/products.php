@@ -16,9 +16,6 @@ class products extends model
 
 
 
-
-
-
     // lấy list sản phẩm
     public function getList_new()
     {
@@ -50,7 +47,7 @@ class products extends model
         global $db;
 
         $sql = "SELECT pd.*, pr.image FROM $db->tbl_fix$this->class_name pd JOIN properties pr ON pr.product_id = pd.id WHERE pr.role_img=0";
-        $l = $db->executeQuery($sql);
+        $l = $db->executeQuery($sql,4);
 
         return $l;
     }
@@ -117,10 +114,10 @@ class products extends model
     }
     public function getProductFilter($sort)
     {
-
         global $db;
         $orderby = "";
         $set = "";
+   
         $cate_id = $this->get('cate_id');
 
         if ($cate_id != null) {
@@ -138,10 +135,9 @@ class products extends model
         FROM $db->tbl_fix$this->class_name p
         JOIN product_category c ON p.cate_id = c.id
         JOIN properties pr ON p.id = pr.product_id
-        WHERE pr.role_img=0 $set $orderby";
+        WHERE  pr.role_img=0 $set $orderby";
 
         $l = $db->executeQuery_list($sql);
-
         return $l;
     }
     public function updateProduct($arrKey)
