@@ -126,7 +126,7 @@
 
                                         <div class="d-flex border-top">
                                             <small class="w-50 text-center border-end py-2">
-                                                <a class="text-body" href="shopdog/detail/"><i
+                                                <a class="text-body" href="/{$item.link_url}-id{$item.id}"><i
                                                         class="fa fa-eye text-secondary me-2"></i>Xem</a>
                                             </small>
                                             <small class="w-50 text-center py-2 wrap_addtocart">
