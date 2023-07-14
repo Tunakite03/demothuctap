@@ -20,6 +20,15 @@ switch ($act) {
             $st->assign('dataInfoUser', $datauser);
         }
         break;
+    case 'confirm':
+        if (!isset($_SESSION['user_id'])) {
+            $main->redirect($domain . "/tai-khoan");
+            $db->close();
+            exit();
+        } else {
+            $title .= 'Xác nhận thanh toán thành công';
+        }
+        break;
     case 'error':
         $title .= 'Loi';
         break;

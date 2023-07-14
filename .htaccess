@@ -17,8 +17,8 @@ RewriteRule ^gio-hang$ /?m=cart&act=index [L]
 RewriteRule ^(.*)-id([0-9]+)$ /?m=shop&act=detail&link_url=$1&id=$2 [L]
 RewriteRule ^tim-kiem$ /?m=shop&act=search [L]
 RewriteRule ^thanh-toan$ /?m=order&act=index [L]
+RewriteRule ^xac-nhan-thanh-toan$ /?m=order&act=confirm [L]
 RewriteRule ^thong-tin-ca-nhan$ /?m=account&act=profile [L]
-
 #url tong quan
 RewriteRule ^404$ /?m=home&act=error [L]
 

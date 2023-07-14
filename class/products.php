@@ -8,8 +8,11 @@ class products extends model
     protected $des;
     protected $link_url;
     protected $key;
-    protected $limit;
-
+    protected $is_publish;
+    protected $sale;
+    protected $price;
+    protected $quantity;
+    protected $number_sold;
 
 
 
@@ -56,17 +59,48 @@ class products extends model
 
         return $l;
     }
+    public function getInfoProductById()
+    {
+        global $db;
+        $sql = "SELECT * FROM $db->tbl_fix$this->class_name  WHERE id=$this->id";
+        $l = $db->executeQuery($sql, 1);
+        return $l;
+    }
+
     public function getPriceProductById()
     {
         global $db;
         $id = $this->get('id');
-        $sql = "SELECT price
+        $sql = "SELECT ROUND((price*sale),2) as price
                         FROM productdogs
                        WHERE id=$id";
         $result = $db->executeQuery($sql, 1);
 
-        return $result;
+        return $result['price'];
     }
+    public function getQuantityProductById()
+    {
+        global $db;
+        $id = $this->get('id');
+        $sql = "SELECT quantity
+                        FROM productdogs
+                       WHERE id=$id";
+        $result = $db->executeQuery($sql, 1);
+
+        return $result['quantity'];
+    }
+    public function getNumberSoldProductById()
+    {
+        global $db;
+        $id = $this->get('id');
+        $sql = "SELECT number_sold
+                        FROM productdogs
+                       WHERE id=$id";
+        $result = $db->executeQuery($sql, 1);
+
+        return $result['number_sold'];
+    }
+
     public function getProductSearch()
     {
 
@@ -85,7 +119,6 @@ class products extends model
         $set = "";
    
         $cate_id = $this->get('cate_id');
-        
 
         if ($cate_id != null) {
             $set = " AND c.id = $cate_id OR c.root_id = $cate_id";
@@ -94,11 +127,9 @@ class products extends model
 
         if ($sort == 'DESC') {
             $orderby =  " ORDER BY p.price DESC";
-        }
-        elseif($sort == 'ASC'){
+        } elseif ($sort == 'ASC') {
             $orderby =  " ORDER BY p.price ASC";
         }
-  
 
         $sql = "SELECT *,pr.image,pr.role_img
         FROM $db->tbl_fix$this->class_name p
@@ -107,7 +138,16 @@ class products extends model
         WHERE  pr.role_img=0 $set $orderby";
 
         $l = $db->executeQuery_list($sql);
-        print_r($sql);
         return $l;
+    }
+    public function updateProduct($arrKey)
+    {
+        global $db;
+        $id = $this->id;
+        foreach ($arrKey as $key => $value) {
+            $arr[$value] = $this->$value;
+        }
+        $db->record_update($db->tbl_fix . $this->class_name, $arr, 'id =' . $id);
+        return true;
     }
 }

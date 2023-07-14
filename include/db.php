@@ -190,6 +190,7 @@ class db
 
 	public function executeQuery_list($sql)
 	{
+
 		$rsl = $this->executeQuery($sql);
 		$kq = array();
 		while ($row = mysqli_fetch_assoc($rsl)) {
@@ -238,7 +239,6 @@ class db
 
 	public function record_delete($table_name, $where = '')
 	{
-		echo $table_name;
 		if ($where)	$whereand = " WHERE " . $where;
 		$queryString = "DELETE FROM " . $table_name . $whereand;
 		return $this->executeQuery($queryString);

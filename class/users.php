@@ -1,5 +1,5 @@
 <?php
-class users
+class users extends model
 {
     private $user_id;
     private $fullname;
@@ -208,13 +208,13 @@ class users
         return $rows;
     }
 
-    public function get_detail($username)
-    {
-        global $db;
-        $sql = "SELECT * FROM " . $db->tbl_fix . "`users` WHERE `username`='" . str_replace("'", "\'", $username) . "'";
-        $rows = $db->executeQuery($sql, 1);
-        return $rows;
-    }
+    // public function get_detail($username)
+    // {
+    //     global $db;
+    //     $sql = "SELECT * FROM " . $db->tbl_fix . "`users` WHERE `username`='" . str_replace("'", "\'", $username) . "'";
+    //     $rows = $db->executeQuery($sql, 1);
+    //     return $rows;
+    // }
 
     public function get_fullname($username)
     {
@@ -258,12 +258,12 @@ class users
     }
 
 
-    public function delete($username)
-    {
-        global $db;
-        $db->record_delete($db->tbl_fix . "user", " `username`='" . str_replace("'", "\'", $username) . "' ");
-        return true;
-    }
+    // public function delete($username)
+    // {
+    //     global $db;
+    //     $db->record_delete($db->tbl_fix . "user", " `username`='" . str_replace("'", "\'", $username) . "' ");
+    //     return true;
+    // }
 
     public function add()
     {
@@ -283,22 +283,13 @@ class users
         return true;
     }
 
-    public function update()
+    public function updateUser()
     {
         global $db;
-
-        if ($this->getpassword() != '') {
-            $password = $this->getpassword();
-            $pass = md5($password);
-            $arr['password'] = $pass;
-        }
-
-        $id = $this->getid();
-        // $arr['username'] = $this->getusername();
-        $arr['fullname'] = $this->getfullname();
-        $arr['phone'] = $this->getphonenumber();
-        // $arr['email'] = $this->getemail();
-        $db->record_update($db->tbl_fix . '`user`', $arr, " `id` = '$id' ");
+        $id = $this->user_id;
+        $arr['fullname'] = $this->fullname;
+        $arr['phonenumber'] = $this->phonenumber;
+        $db->record_update($db->tbl_fix . '`users`', $arr, " `user_id` = '$id' ");
 
         return true;
     }
@@ -332,7 +323,7 @@ class users
     {
         global $db;
         $sql = "SELECT * FROM `users` WHERE user_id=$this->user_id";
-        $rows = $db->executeQuery($sql,1);
+        $rows = $db->executeQuery($sql, 1);
         return $rows;
     }
 }

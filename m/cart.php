@@ -21,7 +21,6 @@ switch ($act) {
         break;
     case 'addtocart':
         $cart = new cart();
-
         $product = new products();
 
         $cart->set('product_id', $main->post('product_id'));
@@ -40,9 +39,6 @@ switch ($act) {
                 $cart->set('quantity', $rows['quantity'] + $main->post('quantity'));
                 $result =   $cart->updateQuantity();
             } else {
-                $product->set('id', $main->post('product_id'));
-                $price = $product->getPriceProductById();
-                $cart->set('price', $price['price']);
                 $result = $cart->addtocart();
             }
             if ($result == true) {
