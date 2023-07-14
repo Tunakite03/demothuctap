@@ -59,4 +59,39 @@ $(document).ready(function () {
 
     });
 
+    $(document).on('click', '#insertLike', function () {
+       
+        // alert('helo');
+        // return;
+        var data = new FormData();
+        data.append('product_id', $('#product_id').val())
+        // data.append('user_id', $("#quantity-pro").val());
+        // var data = new FormData();
+
+        _doAjaxNodCustom('POST',data, 'likeproduct_index', 'index', 'addtolike', true, (res) => {
+          
+            if (res.status == 200) {
+                Toastify({
+                    text: res.message,
+                    duration: 3000, // Set the duration for how long the toast should be displayed
+                    gravity: "top-right", // Set the position of the toast (e.g., "top", "bottom", "center")
+                    close: true, // Enable the close button on the toast
+                    backgroundColor: "#3cb815",
+                }).showToast();
+            } else {
+                Toastify({
+                    text: res.message,
+                    duration: 3000, // Set the duration for how long the toast should be displayed
+                    gravity: "top-right", // Set the position of the toast (e.g., "top", "bottom", "center")
+                    close: true, // Enable the close button on the toast
+                    backgroundColor: "#FF0000",
+
+                }).showToast();
+                return false;
+            }
+        })
+
+    });
+
+
 })

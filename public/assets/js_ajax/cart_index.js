@@ -148,6 +148,7 @@ function fetchData(data, domain, totalInCart, id) {
       `;
         });
         $(id).html(newTbodyContent);
+        
         var totalCart = parseFloat(totalInCart.reduce) + parseFloat(totalInCart.total);
 
         newBodyPayment = `<tr class="order-subtotal">
