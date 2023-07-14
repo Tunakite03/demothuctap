@@ -3,52 +3,36 @@
     <div class="container">
         <div class="row">
             <!-- Search -->
-            <div class="col-lg-3 col-md-5">
+            <div class="col-lg-3 col-md-5" style="position: relative; top: 100px">
                 <div class="sidebar">
                     <div class="sidebar-item">
                         <h4 class="sidebar-title">DANH MỤC SẢN PHẨM</h4>
                         <hr>
-                        <ul class="sidebar-menu">
-                            {foreach $dataCateRoot as $item}
-                                {if $item.root_id eq 0}
-                                    <li class="sidebar-item">
-                                        <p class="sidebar-subtitle cate_click">
-                                            <a class="sidebar-link" data-cate-id={$item.id}>{$item.category}</a>
-                                        </p>
-                                        <ul class="sidebar-submenu">
-                                            {foreach $dataCateNotRoot as $subitem}
-                                                {if $subitem.root_id eq $item.id}
-                                                    <li>
-                                                        <p class="subcate_click"><a class="sidebar-link"
-                                                                data-subcate-id={$subitem.id}>{$subitem.category}</a></p>
-                                                    </li>
-                                                {/if}
-                                            {/foreach}
-                                        </ul>
-                                    </li>
-                                {/if}
-                            {/foreach}
-                        </ul>
-                    </div>
-                    {* <div class="sidebar-item filter_price">
-                        <h4>Giá</h4>
-                        <div class="price-range-wrap">
-                            <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                data-min="0" data-max="1500000">
-                                <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                            </div>
-                            <div class="range-slider">
-                                <div class="price-input mt-3 d-flex justify-content-between">
-                                    <input type="number" id="minamount" min="0" value="0" class="px-2"
-                                        style="width: fit-content !important; outline: none;" readonly>
-                                    <input type="number" id="maxamount" value="1500000" class="px-2"
-                                        style="width: fit-content !important; outline: none;" readonly>
-                                </div>
-                            </div>
+                        <div>
+                            <ul class="sidebar-menu">
+                                {foreach $dataCateRoot as $item}
+                                    {if $item.root_id eq 0}
+                                        <li class="sidebar-item">
+                                            <p class="sidebar-subtitle cate_click">
+                                                <a class="sidebar-link" data-cate-id="{$item.id}">{$item.category}</a>
+                                            </p>
+                                            <ul class="sidebar-submenu">
+                                                {foreach $dataCateNotRoot as $subitem}
+                                                    {if $subitem.root_id eq $item.id}
+                                                        <li>
+                                                            <p class="subcate_click"><a class="sidebar-link"
+                                                                    data-subcate-id="{$subitem.id}">{$subitem.category}</a></p>
+                                                        </li>
+                                                    {/if}
+                                                {/foreach}
+                                            </ul>
+                                        </li>
+                                    {/if}
+                                {/foreach}
+                            </ul>
                         </div>
-                    </div> *}
+
+                    </div>
                 </div>
             </div>
 
@@ -61,6 +45,8 @@
                                 alt="Sale Off" width="150px" height="150px" srcset=""></h2>
                     </div>
                     <div class="row">
+                    <h5>Sản phẩm khuyến mãi</h5>
+
                         <div class="product-discount-slider owl-carousel">
                             {foreach from=$dataproductsale item=item key=key}
                                 <div class="col-lg-4 m-auto w-100 p-2 justify-content-center">

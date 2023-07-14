@@ -33,11 +33,22 @@ function register() {
         $("#inputEmail2").after(`<span class="err-modify-tv color-red">* Vui lòng nhập email.</span>`);
         status_error = true;
     }
-    if ($("#inputPhonenumber").val() == '') {
-        $("#inputPhonenumber").after(`<span class="err-modify-tv color-red">* Vui lòng nhập số điện thoại.</span>`);
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (emailRegex.test(("#inputEmail2").val())) {
+        $("#inputEmail2").after(`<span class="err-modify-tv color-red">* Vui lòng nhập đúng định dạng.</span>`);
+        status_error = true;
+    }
+
+    if ($("#inputPhonenumber").val() == '' || $("#inputPhonenumber").val().length !== 10) {
+        $("#inputPhonenumber").after(`<span class="err-modify-tv color-red">* Vui lòng nhập đúng số điện thoại.</span>`);
         status_error = true;
     }
     if ($("#inputPassword2").val() == '') {
+        $("#inputPassword2").after(`<span class="err-modify-tv color-red">* Vui lòng nhập mật khẩu.</span>`);
+        status_error = true;
+    }
+    if ($("#inputPassword2").val().length < 7) {
         $("#inputPassword2").after(`<span class="err-modify-tv color-red">* Vui lòng nhập mật khẩu.</span>`);
         status_error = true;
     }
