@@ -60,7 +60,7 @@
 
                 <div class="mb-3">
                     <input type="number" value="{$data_detail.id}" hidden id="product_id">
-                    <label for="quantity" class="form-label">Số lượng:</label>
+                    <label for="quantity" class="form-label">Số lượng: {$data_detail.quantity}</label>
                     <div class="input-group">
                         <button type="button" class="btn btn-outline-primary minus-btn" id="minus">-</button>
                         <input style="width: 60px; padding: 0 5px;" type="number"
