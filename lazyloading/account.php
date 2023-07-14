@@ -20,10 +20,10 @@ if ($act == 'index') {
                 $users->set('createdAt', time());
 
                 $result = $users->add();
-                $dLogin = $users->get_detail($main->post('username'));
+
+                $dLogin = $users->getDetailByUsername($main->post('username'));
 
                 if (isset($dLogin['user_id'])) {
-
                     $_SESSION['user_id']     = $dLogin['user_id'];
                     $_SESSION['username']     = $dLogin['username'];
                     $_SESSION['password']     = $dLogin['password'];

@@ -15,6 +15,7 @@ $('body').on('click', '#btn_register', function (event) {
 });
 
 function register() {
+
     $(".err-modify-tv").remove();
     $("#error_register").addClass('d-none');
 
@@ -58,9 +59,8 @@ function register() {
     data.append('phonenumber', $("#inputPhonenumber").val());
     data.append('password', $("#inputPassword2").val());
     _doAjaxNodCustom('POST', data, 'account', 'index', 'register', true, (res) => {
-        // console.log(res);
         if (res.status == 200) {
-            window.location = domain;
+            window.location = domain + '/';
         } else {
             $("#error_register").html(res.message);
             $("#error_register").removeClass('d-none');
@@ -106,7 +106,7 @@ function login() {
     _doAjaxNodCustom('POST', data, 'account', 'index', 'login', true, (res) => {
         // console.log(res);
         if (res.status == 200) {
-            window.location = domain + '/trang-chu';
+            window.location = domain + '/';
             localStorage.clear();
             if ($('#remember').is(':checked')) {
                 localStorage.setItem('accountClient', $("#username").val());

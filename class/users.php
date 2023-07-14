@@ -117,6 +117,19 @@ class users extends model
         return $rows;
     }
 
+
+    function getDetailByUsername()
+    {
+        global $db;
+        $username = $this->username;
+        $sql = "SELECT *
+        FROM $db->tbl_fix`users`
+        WHERE  username = '$username'
+         limit 0,1";
+        $rows = $db->executeQuery($sql, 1);
+
+        return $rows;
+    }
     public function getInfoUserById()
     {
         global $db;
